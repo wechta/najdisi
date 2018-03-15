@@ -1,0 +1,12 @@
+@import '../styles/defaults';
+
+.ns-source-list_ {
+    &_wrapper {
+        display: flex;
+        line-height: $line-height-s;
+        flex-wrap: wrap;
+        &.nsmod-center{ justify-content: center; }
+    }
+    &_separator { padding: 0 $spacing-xs; }
+    &_cat, &_source { font-weight: $font-weight-semi-bold; }
+}

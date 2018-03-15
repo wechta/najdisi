@@ -1,0 +1,41 @@
+@import '../styles/defaults';
+
+$border-radius: 10px;
+$arrow-size: 24px;
+
+.ns-arrow_ {
+    &_click {
+        width: 28px;
+        height: 110px;
+        background: $bcg-arrow;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        transform: translate(0, -50%);
+        &.nsmod-is-left {
+            left: 0;
+            border-bottom-right-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+        }
+        &.nsmod-is-right {
+            right: 0;
+            border-bottom-left-radius: $border-radius;
+            border-top-left-radius: $border-radius;
+        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+    }
+    &_arrow {
+        height: $arrow-size;
+        width: $arrow-size;
+        margin-left: 1px;
+        user-select: none;
+        &.nsmod-is-left {
+            margin: 0 1px 0 0;
+            transform: scaleX(-1);
+        }
+    }
+}

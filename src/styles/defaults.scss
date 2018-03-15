@@ -1,0 +1,89 @@
+@import 'reset';
+@import 'mediaqueries';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+body { font-family: 'Roboto', }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+//font wights
+$font-weight-light:         300;
+$font-weight-normal:        400;
+$font-weight-semi-bold:     500;
+$font-weight-bold:          700;
+
+//font sizes
+$font-size-xs: 10px;
+$font-size-s: 12px;
+$font-size-m: 15px;
+$font-size-l: 20px;
+
+$line-height-xs: 12px;
+$line-height-s: 14px;
+
+//spacings
+$spacing-xs: 5px;
+$spacing-s: 10px;
+$spacing-m: $spacing-s * 2;
+$spacing-l: $spacing-s * 3;
+$spacing-xl: $spacing-s * 4;
+
+//colors
+$bcg-main: #e6e7e8;
+$bcg-article: #fff;
+$bcg-arrow: #7e7e7e;
+$color-x: #52b562;
+$color-title-link: #4b63ae;
+
+$color-primary: #333;
+$color-secondary: #999;
+
+$color-title: $color-primary;
+
+//mods
+.nsmod-title {
+    font-weight: $font-weight-bold;
+    color: $color-title;
+    text-transform: none;
+}
+
+.nsmod-title-coloured {
+   color: $color-title-link;
+}
+.nsmod-text {
+    font-size: $font-size-s;
+    color: $color-primary;
+    text-transform: none;
+}
+.nsmod-secondary {
+    font-size: $font-size-xs;
+    color: $color-secondary;
+}
+.nsmod-clickable {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    &:hover {
+        opacity: .7;
+        transition: opacity .25s ease-in-out;
+    }
+}
+
+@mixin absolute($val) {
+    position: absolute;
+    left: $val;
+    right: $val;
+    bottom: $val;
+    top: $val;
+}
+
+$width-sidebar: 300px;
+$height-slider: 300px;
+//image sizes
+$width-max-img: 271px; //562
+$height-max-img: 203px;
+
+
+

@@ -1,0 +1,48 @@
+$width-xl: 1280px;
+$width-l: 1024px;
+$width-m: 768px;
+
+$width-2cols: 920px;
+
+// 1280 and up
+@mixin brkpnt-xl-min {
+    @media (min-width: $width-xl) {
+        @content;
+    }
+}
+// up to 1280
+@mixin brkpnt-xl {
+    @media (max-width: $width-xl) {
+        @content;
+    }
+}
+// between 1280 and 1024
+@mixin brkpnt-xl-l {
+    @media (max-width: $width-xl - 1px) and (min-width: $width-l) {
+        @content;
+    }
+}
+// up to 1024
+@mixin brkpnt-l {
+    @media (max-width: $width-l) {
+        @content;
+    }
+}
+// between 1024 and 768
+@mixin brkpnt-l-m {
+    @media (max-width: $width-l - 1px) and (min-width: $width-m) {
+        @content;
+    }
+}
+// up to 768
+@mixin brkpnt-m {
+    @media (max-width: $width-m) {
+        @content;
+    }
+}
+// up to 920 - two cols display - DEMO ONLY
+@mixin brkpnt-2cols {
+    @media (max-width: $width-2cols) {
+        @content;
+    }
+}

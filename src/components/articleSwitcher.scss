@@ -1,0 +1,109 @@
+@import '../styles/defaults';
+
+$text-rows: 3;
+$text-rows-slider: 4;
+
+.ns-articles-switcher_ {
+    &_wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        background: $bcg-article;
+        height: $height-slider;
+        &.nsmod-switch-start {
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+        }
+        &.nsmod-switch-end {
+            opacity: 1;
+            transition: opacity .25s ease-in-out;
+        }
+    }
+    &_img-holder {
+        position: relative;
+        flex: 1 0 60%;
+    }
+    &_img-holder img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        transform: translate(-50%, -50%);
+    }
+    &_img-wrap {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+    }
+    &_holder {
+        width: 100%;
+        overflow: hidden;
+        padding: $spacing-l $spacing-m;
+        position: relative;
+        padding-right: $spacing-m * 2;
+        overflow: hidden;
+    }
+    &_wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        //overflow: hidden;
+    }
+    &_title {
+        color: $color-title-link;
+        margin-top: $spacing-l;
+        font-size: $font-size-l;
+    }
+    &_content {
+        position: relative;
+        margin-top: $spacing-m;
+        flex: 1 1 auto;
+    }
+    &_text-wrap { @include absolute(0); }
+    &_content { line-height: $line-height-s; }
+}
+
+.r-medium {
+    .ns-articles-switcher_ {
+        &_wrapper { height: $height-slider - 50px; }
+        &_img-holder { height: $height-slider - 50px; }
+        &_img-holder { flex: 0 1 50%; }
+        &_holder {
+            flex: 0 1 50%;
+            padding: $spacing-m;
+            padding-right: $spacing-m * 2;
+        }
+        &_title {
+            margin-top: $spacing-m;
+            font-size: $font-size-m;
+        }
+        &_content { margin-top: $spacing-s; }
+    }
+}
+.r-small {
+    .ns-articles-switcher_ {
+        &_wrapper{
+            flex-direction: column;
+            height: 250px * 2;
+        }
+        &_img {
+            height: 250px;
+            flex: 0 1 auto;
+        }
+        &_holder {
+            padding: $spacing-m;
+            width: auto;
+        }
+        &_holder, &_img-holder {
+            flex: 0 1 auto;
+            height: 250px;
+        }
+    }
+}
