@@ -7,22 +7,18 @@ require('./article.scss');
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import LinesEllipsis from 'react-lines-ellipsis';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
-
 import classPrefixer from '../helpers/classPrefixer';
-
-import Dimensions from 'react-dimensions';
 import { responsive } from './sizeConf';
-
 import SourceList from '../common/sourceList';
+import ImageVideo from '../common/imgVideo';
+import sizeMe from 'react-sizeme';
+import NanoClamp from 'nanoclamp';
 
 const cx = classPrefixer('article');
-const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const TEXT_LINE_H = 14;
-@Dimensions()
+
+@sizeMe()
 export default class Article extends React.Component {
     constructor(props) {
         super(props);
@@ -30,10 +26,6 @@ export default class Article extends React.Component {
             hasData: this.checkdata(props),
             lineCount: false
         };
-    }
-
-    componentWillMount() {
-        this.updateHeight();
     }
 
     componentDidMount() {
@@ -74,54 +66,54 @@ export default class Article extends React.Component {
     };
 
     checkdata(props) {
-        if (props.title && props.img) {
+        if ((props.title && props.image) || (props.data && props.data.title && props.data.image)) {
             return true;
         }
         return false;
     }
 
     render() {
-        const { title, description, img, url, category, source, published, containerWidth } = this.props;
+        const { subCmp, data, inBox, size, showVideo } = this.props;
         const { hasData, lineCount } = this.state;
-        let resp = responsive(containerWidth); //move that somewhere else
+        let resp = responsive(size.width); //move that somewhere else
 
         return (
             <If condition={hasData}>
                 <div className={resp}>
-                    <div className={cx('wrapper')}>
-                        <div className={cx('img-holder')}>
-                            <a href={url} target="_blank">
-                                <div className={cx('img-wrap')} style={{backgroundImage: `url(${img})`}} />
-                            </a>
+                    <div className={cx('wrapper', inBox && 'inbox')}>
+                        <div className={cx('img-holder', inBox && 'inbox')}>
+                            <ImageVideo image={data.image} video={data.video} imgLink={data.linkSeo} showVideo={showVideo} />
                         </div>
-                        <div className={cx('holder')}>
-                            <div className={cx('wrap')}>
-                                <SourceList category={category} source={source} published={published} />
-                                <div className={cx('title', 'title')}>
-                                    <a className={url && 'nsmod-clickable'} href={url} target="_blank">
-                                        <ResponsiveEllipsis
-                                            text={title}
-                                            maxLine={5}
-                                            ellipsis={'...'}
-                                            trimRight
-                                            basedOn={'letters'}
-                                        />
-                                    </a>
+                        <div className={cx('holder', [subCmp && 'has-item', inBox && 'inbox'])}>
+                            <div className={cx('wrap', subCmp && 'has-item')}>
+                                <SourceList category={data.category} source={data.channel} published={data.published} pubDateDiff={data.pubDateDiff} />
+                                <div className={cx('title', ['title', inBox && 'inbox'])}>
+                                    <a className={data.linkSeo && 'nsmod-clickable'} href={data.linkSeo} target="_blank">{data.title}</a>
                                 </div>
                                 <div ref={this.setRef} className={cx('content', 'text')}>
                                     <div className={cx('text-wrap')}>
-                                        {lineCount &&
-                                            <ResponsiveEllipsis
-                                                text={description}
-                                                maxLine={lineCount}
-                                                ellipsis={'...'}
-                                                trimRight
-                                                basedOn={'letters'}
+                                        {(lineCount && data.description.length) &&
+                                            <NanoClamp
+                                                accessibility={false}
+                                                debounce={100}
+                                                is="div"
+                                                lines={lineCount}
+                                                text={data.description}
                                             />
                                         }
                                     </div>
                                 </div>
                             </div>
+                            {subCmp &&
+                                [
+                                    <div key={0} className={cx('item--border')} />,
+                                    <div key={1} className={cx('item--wrapper')}>
+                                        <div className={cx('item--holder')}>
+                                            {subCmp}
+                                        </div>
+                                    </div>
+                                ]
+                            }
                         </div>
                     </div>
                 </div>
@@ -130,17 +122,11 @@ export default class Article extends React.Component {
     }
 }
 
-const { string, bool, number } = PropTypes;
+const { bool, object, element } = PropTypes;
 Article.propTypes = {
-    title: string.isRequired,
-    description: string,
-    img: string.isRequired,
-    url: string,
-    category: string,
-    source: string,
-    published: string,
-    inSlider: bool,
-    animate: string,
-    containerWidth: number,
-    containerHeight: number
+    size: object,
+    data: object,
+    subCmp: element,
+    inBox: bool,
+    showVideo: bool
 };

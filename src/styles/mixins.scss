@@ -1,0 +1,25 @@
+
+@mixin image($classParent, $classChild) {
+    &_#{$classParent} {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    &_#{$classChild} {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        transition: transform .5s ease .1s;
+        &:hover { transform: scale(1.05); }
+    }
+}
+
+@mixin absolute($t, $r, $b, $l) {
+    position: absolute;
+    left: $l;
+    right: $r;
+    bottom: $b;
+    top: $t;
+}

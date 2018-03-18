@@ -10,8 +10,7 @@ const cx = classPrefixer('source-list');
 
 export default class ArtMetadata extends React.PureComponent {
     render() {
-        const { category, source, published, center } = this.props;
-
+        const { category, source, published, pubDateDiff, center } = this.props;
         return (
             <div className={cx('wrapper', ['secondary', center && 'center'])}>
                 {category &&
@@ -22,9 +21,9 @@ export default class ArtMetadata extends React.PureComponent {
                 }
                 {source && <div className={cx('source')}>
                     {source}
-                    {published && <span className={cx('separator')}>&#8226;</span>}
+                    {(published || pubDateDiff) && <span className={cx('separator')}>&#8226;</span>}
                 </div>}
-                {published && <div className={cx('time')}>{dateParser(published)}</div>}
+                {(published || pubDateDiff) && <div className={cx('time')}>{pubDateDiff ? pubDateDiff : dateParser(published)}</div>}
             </div>
         );
     }
@@ -35,5 +34,6 @@ ArtMetadata.propTypes = {
     category: string,
     source: string,
     published: string,
-    center: bool
+    center: bool,
+    pubDateDiff: string
 };

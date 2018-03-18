@@ -3,7 +3,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
-body { font-family: 'Roboto', }
+$font-size-s: 12px;
+
+body {
+    font-family: 'Roboto';
+    font-size: $font-size-s;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -17,7 +22,6 @@ $font-weight-bold:          700;
 
 //font sizes
 $font-size-xs: 10px;
-$font-size-s: 12px;
 $font-size-m: 15px;
 $font-size-l: 20px;
 
@@ -71,19 +75,9 @@ $color-title: $color-primary;
     }
 }
 
-@mixin absolute($val) {
-    position: absolute;
-    left: $val;
-    right: $val;
-    bottom: $val;
-    top: $val;
-}
-
 $width-sidebar: 300px;
 $height-slider: 300px;
 //image sizes
 $width-max-img: 271px; //562
 $height-max-img: 203px;
-
-
 

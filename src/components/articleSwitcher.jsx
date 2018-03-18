@@ -4,32 +4,25 @@ require('./articleSwitcher.scss');
 import React from 'react';
 import PropTypes from 'prop-types';
 import classPrefixer from '../helpers/classPrefixer';
+import { cmpApiHoc } from '../helpers/cmpApiHoc';
 import Arrow from '../common/arrow';
-
-import LinesEllipsis from 'react-lines-ellipsis';
-import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC';
-
 import SourceList from '../common/sourceList';
-
-import Dimensions from 'react-dimensions';
+import sizeMe from 'react-sizeme';
 import { responsive } from './sizeConf';
+import NanoClamp from 'nanoclamp';
 
 const cx = classPrefixer('articles-switcher');
-const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
 const TEXT_LINE_H = 14;
 
-@Dimensions()
+@cmpApiHoc({ articles: 5, mock: true })
+@sizeMe({ refreshRate: 16 })
 export default class ArticleSwitcher extends React.PureComponent {
     constructor(props) {
         super(props);
 
         this.supportsTouch = false;
         this.state = this.getIniState(props);
-    }
-
-    componentWillMount() {
-        this.updateHeight();
     }
 
     componentDidMount() {
@@ -40,9 +33,9 @@ export default class ArticleSwitcher extends React.PureComponent {
     componentWillReceiveProps(np, ns) {
         const p = this.props;
 
-        // Reseting component if we get another set of articles from REST API
-        if (Array.isArray(p.articles) && Array.isArray(np.articles) &&
-            !(p.articles.length === np.articles.length && p.articles.every((v, i) => v === np.articles[i]))) {
+        // Reseting component if we get another set of data from REST API
+        if (Array.isArray(p.data) && Array.isArray(np.data) &&
+            !(p.data.length === np.data.length && p.data.every((v, i) => v === np.data[i]))) {
             this.clearInterval();
             this.setState(this.getIniState(np));
         }
@@ -93,8 +86,8 @@ export default class ArticleSwitcher extends React.PureComponent {
 
     filterData = (props) => {
         let filteredArticles = [];
-        if (props.articles && Array.isArray(props.articles) && props.articles.length) {
-            filteredArticles = props.articles.filter(art => art.title && art.img && art);
+        if (props.data && Array.isArray(props.data) && props.data.length) {
+            filteredArticles = props.data.filter(art => art.title && art.image && art);
         }
         return filteredArticles;
     }
@@ -152,7 +145,7 @@ export default class ArticleSwitcher extends React.PureComponent {
                     animateClass: 'switch-end',
                     selectedEl: selEl
                 });
-            }, 250);
+            }, 100);
         }
     }
 
@@ -174,47 +167,38 @@ export default class ArticleSwitcher extends React.PureComponent {
     }
 
     render() {
-        const { containerWidth } = this.props;
+        const { size } = this.props;
         const { filtered, selectedEl, isHover, animateClass, lineCount } = this.state;
-        const { img, category, source, published, title, description, url } = filtered[selectedEl];
+        const { image, category, channel, published, title, description, linkSeo, pubDateDiff } = filtered[selectedEl];
 
-        let resp = responsive(containerWidth); //move that somewhere else
+        let resp = responsive(size.width); //move that somewhere else
 
         return (
             <If condition={filtered.length}>
                 <div className={resp}>
                     <div className={cx('wrapper')}>
                         <div className={cx('wrapper', animateClass)}>
-                                <div className={cx('img-holder')}>
-                                    <a href={url} target="_blank">
-                                        <div className={cx('img-wrap')} style={{ backgroundImage: `url(${img})` }} />
-                                    </a>
-                                </div>
-                            <div className={cx('holder')}>
+                            <div className={cx('img-holder', animateClass)}>
+                                <a href={linkSeo} target="_blank">
+                                    <div className={cx('img-wrap')} style={{ backgroundImage: `url(${image})` }} />
+                                </a>
+                            </div>
+                            <div className={cx('holder', animateClass)}>
                                 <div className={cx('wrap')}>
-                                    <SourceList category={category} source={source} published={published} center={resp === 'r-small'} />
+                                    <SourceList category={category} source={channel} published={published} pubDateDiff={pubDateDiff} center={resp === 'r-small'} />
                                     <div className={cx('title', ['title', 'title-coloured'])}>
-                                        <a className={url && 'nsmod-clickable'} href={url} target="_blank">
-                                            <ResponsiveEllipsis
-                                                text={title}
-                                                maxLine={5}
-                                                ellipsis={'...'}
-                                                trimRight
-                                                basedOn={'letters'}
-                                            />
-                                        </a>
+                                        <a className={linkSeo && 'nsmod-clickable'} href={linkSeo} target="_blank">{title}</a>
                                     </div>
                                     <div ref={this.setRef} className={cx('content', 'text')}>
                                         <div className={cx('text-wrap')}>
-                                            {lineCount &&
-                                                <ResponsiveEllipsis
+                                            {(lineCount && description.length) &&
+                                                <NanoClamp
+                                                    accessibility={false}
+                                                    debounce={100}
+                                                    is="div"
+                                                    lines={lineCount}
                                                     text={description}
-                                                    maxLine={lineCount}
-                                                    ellipsis={'...'}
-                                                    trimRight
-                                                    basedOn={'letters'}
-                                                />
-                                            }
+                                                />}
                                         </div>
                                     </div>
                                 </div>
@@ -231,8 +215,9 @@ export default class ArticleSwitcher extends React.PureComponent {
     }
 }
 
-const { array, number } = PropTypes;
+const { array, number, object } = PropTypes;
 ArticleSwitcher.propTypes = {
-    articles: array.isRequired,
+    size: object,
+    data: array,
     containerWidth: number
 };

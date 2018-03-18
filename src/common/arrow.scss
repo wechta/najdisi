@@ -1,11 +1,11 @@
 @import '../styles/defaults';
 
 $border-radius: 10px;
-$arrow-size: 24px;
+$arrow-size: 22px;
 
 .ns-arrow_ {
     &_click {
-        width: 28px;
+        width: 25px;
         height: 110px;
         background: $bcg-arrow;
         cursor: pointer;
@@ -13,6 +13,7 @@ $arrow-size: 24px;
         top: 50%;
         bottom: auto;
         transform: translate(0, -50%);
+        &.nsmod-small { height: 70px; }
         &.nsmod-is-left {
             left: 0;
             border-bottom-right-radius: $border-radius;

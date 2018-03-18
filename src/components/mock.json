@@ -1,58 +1,76 @@
 {
-    "articles": [
-        {
-            "title": "Znanstveni blog: Kako pri otrocih spodbujamo interes za znanost?",
-            "description": "Šola od učencev zahteva, da si zapomnijo kup podatkov, in nato oceni, kako dobro so si jih zapomnili. Otroci pri pouku zato postanejo pasivni poslušalci, ki ne postavljajo vprašanj in nanje ne odgovarjajo, če niso poklicani. Pri fiziki, kemiji in biologiji se zato ustvarja občutek, da jih znanost ne zanima. Pri tem se lahko upravičeno vprašamo, kako lahko pri otrocih spodbudimo interes za znanost.",
-            "img": "http://www.delo.si/assets/media/picture/20180131/480x290_shutterstock_632474846.jpg?rev=0",
-            "url": "http://www.delo.si/znanje/znanost/znanstveni-blog-kako-pri-otrocih-spodbujamo-interes-za-znanost.html",
-            "category": "Znanje",
-            "source": "DELO",
-            "published": "2018-03-03 17:25"
-        },
-        {
-            "title": "Fenerbahče se je maščeval Realu, Dončić dosegel 14 točk",
-            "description": "V zadnji tekmi 34. kroga Evrolige se Real iz Madrida meri z drugouvrščenim Fenerbahčejem. Pri kraljevem klubu nastopata slovenska reprezentanta Luka Dončić in Anthony Randolph.",
-            "img": "https://img.rtvslo.si/_up/upload/2018/03/02/65479060.jpg",
-            "url": "http://www.rtvslo.si/sport/novice/evroliga-real-madrid-fenerbahce/447643",
-            "category": "Šport",
-            "source": "MMC RTV SLO",
-            "published": "2018-03-02 22:30"
-        },
-        {
-            "title": "Indijsko praznovanje prihoda pomladi s festivalom barv",
-            "description": "Hindujski festival Holi naznanja začetek pomladi, zmago toplote nad mrazom in dobrega nad zlim. Ljudje širom sveta ga dobro poznajo predvsem zaradi barvnega prahu, s katerim se Indijci obarvajo na dan praznovanja.",
-            "img": "https://img.rtvslo.si/_up/upload/2018/03/02/65479053.jpg",
-            "url": "http://www.rtvslo.si/zabava/zanimivosti/foto-indijsko-praznovanje-prihoda-pomladi-s-festivalom-barv/447645",
-            "category": "Zanimivosti",
-            "source": "MMC RTV SLO",
-            "published": "2018-03-01 15:40"
-        },
-        {
-            "title": "Znana spletna stran tarča največjega hekerskega napada v zgodovini",
-            "description": "GitHub, največje programerjem namenjeno spletno mesto in tudi 66. najpogosteje obiskana stran na spletu, je bil v sredo žrtev hekerskega napada do zdaj še nikoli zabeležene magnitude. Napadalci so GitHub poskusili zrušiti z znano metodo DDoS, katere cilj je preobremeniti spletno stran, da ne deluje več pravilno. GitHub v napadu škode praktično ni utrpel, saj so bili nanj dobro pripravljeni. ",
-            "img": "https://siol.net/media/img/11/3e/6554a6403b6249c28c01-github.png",
-            "url": "https://siol.net/digisvet/novice/znana-spletna-stran-tarca-najvecjega-hekerskega-napada-v-zgodovini-461409",
-            "category": "Novice",
-            "source": "SIOL",
-            "published": "2018-03-03 16:20"
-        },
-        {
-            "title": "Pozor, to vas bo udarilo po žepu",
-            "description": "Za podražitev so se pri A1 odločili zato, ker pričakujejo, da se bo trend naraščanja prenosa podatkov v državah EU nadaljeval tudi v prihodnje.",
-            "img": "http://www.slovenskenovice.si/images/slike/2018/03/02/o_shutterstock_105115475_1024.jpg",
-            "url": "http://www.slovenskenovice.si/potrosnik/clanek/pozor-to-vas-bo-udarilo-po-zepu34926",
-            "category": "Novice",
-            "source": "SLOVENSKE NOVICE",
-            "published": "2018-03-03 15:20"
-        },
-        {
-            "title": "Digitalizacija bo motor rasti v prihodnosti",
-            "description": "Z avtonomnimi avtomobili in tovornjaki bodo izginili milijoni delovnih mest za voznike. Trgovci pa bodo avtomatizirali vse, kar je mogoče, da bodo lahko zmanjšali število zaposlenih. Ekonomisti se bodo takrat razburjali, ker ne bo na voljo dovolj delovnih mest.",
-            "img": "http://www.mladina.si/media/www/slike/dnevne/2018/__610/car_1.jpg",
-            "url": "http://www.mladina.si/184368/digitalizacija-bo-motor-rasti-v-prihodnosti/",
-            "category": "Družba",
-            "source": "MLADINA",
-            "published": "2018-03-03 11:20"
-        }
-    ]
+    "results": {
+        "document": [
+            {
+                "title": "Znanstveni blog: Kako pri otrocih spodbujamo interes za znanost?",
+                "description": "Šola od učencev zahteva, da si zapomnijo kup podatkov, in nato oceni, kako dobro so si jih zapomnili. Otroci pri pouku zato postanejo pasivni poslušalci, ki ne postavljajo vprašanj in nanje ne odgovarjajo, če niso poklicani. Pri fiziki, kemiji in biologiji se zato ustvarja občutek, da jih znanost ne zanima. Pri tem se lahko upravičeno vprašamo, kako lahko pri otrocih spodbudimo interes za znanost.",
+                "image": "http://www.delo.si/assets/media/picture/20180131/480x290_shutterstock_632474846.jpg?rev=0",
+                "video": "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4",
+                "linkSeo": "http://www.delo.si/znanje/znanost/znanstveni-blog-kako-pri-otrocih-spodbujamo-interes-za-znanost.html",
+                "category": "Znanje",
+                "channel": "DELO",
+                "channelUrl": "delo.si",
+                "pubDate": "2018-03-03 17:25",
+                "pubDateDiff": "pred 6 dnevi"
+            },
+            {
+                "title": "Fenerbahče se je maščeval Realu, Dončić dosegel 14 točk",
+                "description": "V zadnji tekmi 34. kroga Evrolige se Real iz Madrida meri z drugouvrščenim Fenerbahčejem. Pri kraljevem klubu nastopata slovenska reprezentanta Luka Dončić in Anthony Randolph.",
+                "image": "https://img.rtvslo.si/_up/upload/2018/03/02/65479060.jpg",
+                "linkSeo": "http://www.rtvslo.si/sport/novice/evroliga-real-madrid-fenerbahce/447643",
+                "category": "Šport",
+                "channel": "MMC RTV SLO",
+                "channelUrl": "www.rtvslo.si",
+                "pubDate": "2018-03-02 22:30",
+                "pubDateDiff": "pred 3 dnevi"
+            },
+            {
+                "title": "Indijsko praznovanje prihoda pomladi s festivalom barv",
+                "description": "Hindujski festival Holi naznanja začetek pomladi, zmago toplote nad mrazom in dobrega nad zlim. Ljudje širom sveta ga dobro poznajo predvsem zaradi barvnega prahu, s katerim se Indijci obarvajo na dan praznovanja.",
+                "image": "https://img.rtvslo.si/_up/upload/2018/03/02/65479053.jpg",
+                "linkSeo": "http://www.rtvslo.si/zabava/zanimivosti/foto-indijsko-praznovanje-prihoda-pomladi-s-festivalom-barv/447645",
+                "category": "Zanimivosti",
+                "channel": "MMC RTV SLO",
+                "channelUrl": "www.rtvslo.si",
+                "pubDate": "2018-03-01 15:40",
+                "pubDateDiff": "pred 10 dnevi"
+            },
+            {
+                "title": "Znana spletna stran tarča največjega hekerskega napada v zgodovini",
+                "description": "GitHub, največje programerjem namenjeno spletno mesto in tudi 66. najpogosteje obiskana stran na spletu, je bil v sredo žrtev hekerskega napada do zdaj še nikoli zabeležene magnitude. Napadalci so GitHub poskusili zrušiti z znano metodo DDoS, katere cilj je preobremeniti spletno stran, da ne deluje več pravilno. GitHub v napadu škode praktično ni utrpel, saj so bili nanj dobro pripravljeni. ",
+                "image": "https://siol.net/media/img/11/3e/6554a6403b6249c28c01-github.png",
+                "linkSeo": "https://siol.net/digisvet/novice/znana-spletna-stran-tarca-najvecjega-hekerskega-napada-v-zgodovini-461409",
+                "category": "Novice",
+                "channel": "SIOL",
+                "channelUrl": "siol.net",
+                "pubDate": "2018-03-03 16:20",
+                "pubDateDiff": "pred 15 dnevi"
+            },
+            {
+                "title": "Pozor, to vas bo udarilo po žepu",
+                "description": "Za podražitev so se pri A1 odločili zato, ker pričakujejo, da se bo trend naraščanja prenosa podatkov v državah EU nadaljeval tudi v prihodnje.",
+                "image": "http://www.slovenskenovice.si/images/slike/2018/03/02/o_shutterstock_105115475_1024.jpg",
+                "linkSeo": "http://www.slovenskenovice.si/potrosnik/clanek/pozor-to-vas-bo-udarilo-po-zepu34926",
+                "category": "Novice",
+                "channel": "SLOVENSKE NOVICE",
+                "channelUrl": "www.slovenskenovice.si",
+                "pubDate": "2018-03-03 15:20",
+                "pubDateDiff": "pred 26 dnevi"
+            },
+            {
+                "title": "Digitalizacija bo motor rasti v prihodnosti",
+                "description": "Z avtonomnimi avtomobili in tovornjaki bodo izginili milijoni delovnih mest za voznike. Trgovci pa bodo avtomatizirali vse, kar je mogoče, da bodo lahko zmanjšali število zaposlenih. Ekonomisti se bodo takrat razburjali, ker ne bo na voljo dovolj delovnih mest.",
+                "image": "http://www.mladina.si/media/www/slike/dnevne/2018/__610/car_1.jpg",
+                "linkSeo": "http://www.mladina.si/184368/digitalizacija-bo-motor-rasti-v-prihodnosti/",
+                "category": "Družba",
+                "channel": "MLADINA",
+                "channelUrl": "www.mladina.si",
+                "pubDate": "2018-03-03 11:20",
+                "pubDateDiff": "pred 66 dnevi"
+            }
+        ],
+        "newsCount": "1.720.611"
+    },
+    "responseStatus": 200,
+    "responseMsg": "OK"
 }

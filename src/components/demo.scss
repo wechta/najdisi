@@ -1,4 +1,5 @@
 @import '../styles/defaults';
+@import '../styles/mixins';
 
 //only for demo purposes
 .ns-standalone {
@@ -67,8 +68,8 @@
         margin-bottom: $spacing-xl;
     }
     &_spacer {
-        display: none;
-        &.nsmod-main { display: block; }
+        height: $spacing-xl;
+        width: 100%;
     }
     &_article-regular {
         width: 100%;
@@ -101,7 +102,7 @@
         align-items: center;
         justify-content: center;
         border: 1px solid #ccc;
-        @include absolute($spacing-s);
+        @include absolute($spacing-s, $spacing-s, $spacing-s, $spacing-s);
         &.nsmod-is-multi { left: 0; }
         &.nsmod-is-0 { left: $spacing-s; }
         &.nsmod-is-special { background: $color-x; }

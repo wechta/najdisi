@@ -11,7 +11,7 @@ const cx = classPrefixer('arrow');
 
 export default class Arrow extends React.PureComponent {
     render() {
-        const { side, self } = this.props;
+        const { side, size, self } = this.props;
         let handler = {},
             content = [];
         if (side && self) {
@@ -28,8 +28,8 @@ export default class Arrow extends React.PureComponent {
             }
 
             content = (
-                <div className={cx('click', [`is-${side}`, 'clickable'])} onClick={handler.click} onTouchEnd={handler.touchEnd}>
-                    <img className={cx('arrow', `is-${side}`)} src={arrowPNG} />
+                <div className={cx('click', [`is-${side}`, 'clickable', size && `${size}`])} onClick={handler.click} onTouchEnd={handler.touchEnd}>
+                    <img className={cx('arrow', [`is-${side}`, size && `${size}`])} src={arrowPNG} />
                 </div>
             );
         }
@@ -40,5 +40,6 @@ export default class Arrow extends React.PureComponent {
 const { string, object } = PropTypes;
 Arrow.propTypes = {
     side: string.isRequired,
+    size: string,
     self: object.isRequired
 };

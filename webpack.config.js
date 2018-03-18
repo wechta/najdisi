@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: path.join(__dirname, 'src/docs'),
@@ -22,11 +23,19 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()]
+              }
+            },
+            'sass-loader'
+          ]
+        })
       },
       {
         test: /\.(pdf|jpg|png|gif|svg|ico)$/,
@@ -43,7 +52,7 @@ module.exports = {
       template: path.join(__dirname, 'src/docs/index.html')
     }),
     new ExtractTextPlugin('styles/style.css', {
-        allChunks: true
+      allChunks: true
     })
   ],
   resolve: {

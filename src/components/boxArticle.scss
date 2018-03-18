@@ -1,0 +1,61 @@
+@import '../styles/defaults';
+@import '../styles/mixins';
+
+$articleHeight: 230px;
+
+.ns-box-article_ {
+    &_wrapper {
+        height: $articleHeight;
+        width: 100%;
+        display: flex;
+    }
+    &_single {
+        background: $bcg-article;
+        flex: 1 0 0;
+        margin: 0 $spacing-xs;
+        height: 100%;
+        &:first-of-type { margin-left: 0; }
+        &:last-of-type { margin-right: 0; }
+        display: flex;
+        flex-direction: column;
+        &.nsmod-hide { display: none; }
+    }
+    &_dual {
+        height: $articleHeight;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        &:first-of-type { margin-bottom: $spacing-xs; }
+        &.nsmod-hide { display: none; }
+    }
+}
+
+.r-ba-small {
+    .ns-box-article_ {
+        &_wrapper {
+            height: auto;
+            flex-direction: column;
+        }
+        &_single {  margin-right: 0; }
+    }
+}
+
+.r-ba-xsmall {
+    .ns-box-article_ {
+        &_wrapper {
+            display: block;
+            height: auto;
+        }
+        &_single {
+            height: $articleHeight;
+            margin-bottom: $spacing-xs;
+            &:last-of-type { margin-bottom: 0;}
+        }
+    }
+}
+
+.r-small, .r-medium {
+    width: 100%;
+    height: 100%;
+}

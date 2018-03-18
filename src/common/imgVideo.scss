@@ -1,0 +1,39 @@
+@import '../styles/mixins';
+.ns-image-video_ {
+    &_wrapper {
+        width: 100%;
+        height: 100%;
+    }
+    &_player-wrapper {
+        position: relative;
+        margin: 0 auto;
+        height: 100%;
+        background: #eee;
+    }
+    &_react-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &_button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 24px;
+        padding: 10px;
+        cursor: pointer;
+        &.nsmod-hide {
+            visibility: hidden;
+        }
+    }
+    &_btn-icon {
+        width: 100%;
+        height: auto;
+        opacity: .7;
+        transition: opacity .25s ease-in-out;
+        &:hover { opacity: 1; }
+    }
+    @include image('wrapper', 'img-wrap');
+}

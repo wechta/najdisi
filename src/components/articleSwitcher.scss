@@ -1,47 +1,19 @@
 @import '../styles/defaults';
+@import '../styles/mixins';
 
 $text-rows: 3;
 $text-rows-slider: 4;
 
 .ns-articles-switcher_ {
     &_wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    &_wrapper {
         width: 100%;
         display: flex;
         background: $bcg-article;
         height: $height-slider;
-        &.nsmod-switch-start {
-            opacity: 0;
-            transition: opacity .25s ease-in-out;
-        }
-        &.nsmod-switch-end {
-            opacity: 1;
-            transition: opacity .25s ease-in-out;
-        }
-    }
-    &_img-holder {
         position: relative;
-        flex: 1 0 60%;
     }
-    &_img-holder img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 100%;
-        width: auto;
-        transform: translate(-50%, -50%);
-    }
-    &_img-wrap {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-    }
+    &_img-holder { flex: 1 0 60%; }
+    @include image('img-holder', 'img-wrap');
     &_holder {
         width: 100%;
         overflow: hidden;
@@ -49,12 +21,19 @@ $text-rows-slider: 4;
         position: relative;
         padding-right: $spacing-m * 2;
         overflow: hidden;
+        &.nsmod-switch-start {
+            opacity: .25;
+            transition: opacity .1s ease-out;
+        }
+        &.nsmod-switch-end {
+            opacity: 1;
+            transition: opacity .1s ease-in;
+        }
     }
     &_wrap {
         height: 100%;
         display: flex;
         flex-direction: column;
-        //overflow: hidden;
     }
     &_title {
         color: $color-title-link;
@@ -66,7 +45,7 @@ $text-rows-slider: 4;
         margin-top: $spacing-m;
         flex: 1 1 auto;
     }
-    &_text-wrap { @include absolute(0); }
+    &_text-wrap { @include absolute(0, 0, 0, 0); }
     &_content { line-height: $line-height-s; }
 }
 
@@ -105,5 +84,6 @@ $text-rows-slider: 4;
             flex: 0 1 auto;
             height: 250px;
         }
+        &_title { text-align: center; }
     }
 }

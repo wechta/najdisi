@@ -4,28 +4,28 @@ require('./demo.scss');
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Article from './article';
+import StandaloneArticle from './standaloneArticle';
+import ArticleWithSubarticles from './articleWithSubarticles';
+
 import ArticleSwitcher from './articleSwitcher';
+import BoxArticle from './BoxArticle';
+
 import data from './mock.json';
 import classPrefixer from '../helpers/classPrefixer';
 
 const cx = classPrefixer('demo');
 
+
 const getDemoArticles = (articles, keys) => {
     return (
-        keys.map((idx, i) =>
+        keys.map((idx, i) => {
+            const showVideo = idx % 2 === 1;
+            return (
                 <div key={idx} className={cx('article-regular')} >
-                    <Article
-                        title={articles[idx].title }
-                        description={articles[idx].description}
-                        img={articles[idx].img}
-                        url={articles[idx].url}
-                        category={articles[idx].category}
-                        source={articles[idx].source}
-                        published={articles[idx].published}
-                    />
+                    <StandaloneArticle showVideo={showVideo} />
                 </div>
-        )
+            );
+        })
     );
 };
 
@@ -44,14 +44,9 @@ const DemoMultiArtcls = ({ count, special, last }) => {
         <div className={cx(['article-selector', 'box'], last && 'box-last')}>{content}</div>
     );
 };
-const { number, bool } = PropTypes;
-DemoMultiArtcls.propTypes = {
-    count: number.isRequired,
-    special: bool,
-    last: bool
-};
 
-export default class demo extends React.PureComponent {
+
+export default class Demo extends React.PureComponent {
     render() {
         const { displayDemo, displayComponents } = this.props;
 
@@ -64,13 +59,19 @@ export default class demo extends React.PureComponent {
                     </div>
                     <div className={cx('content')}>
                         <div className={cx('central')}>
-                            <div className={cx('article-slider')}>
-                                <ArticleSwitcher articles={data.articles} />
-                            </div>
 
-                            <DemoMultiArtcls count={4} />
-                            {getDemoArticles(data.articles, [0, 1])}
-                            <DemoMultiArtcls count={4} special />
+                            <ArticleSwitcher />
+
+                            <div className={cx('spacer')} />
+                            <BoxArticle />
+
+                            <div className={cx('spacer')} />
+
+                            <ArticleWithSubarticles />
+
+                            <div className={cx('spacer')} />
+
+                            {false && <DemoMultiArtcls count={4} special />}
 
                             {getDemoArticles(data.articles, [2, 3])}
 
@@ -91,18 +92,12 @@ export default class demo extends React.PureComponent {
         );
 
         const articles = (
-                <div className={'ns-standalone'}>
-                    <ArticleSwitcher articles={data.articles} />
-                    <Article
-                        title={data.articles[0].title}
-                        description={data.articles[0].description}
-                        img={data.articles[0].img}
-                        url={data.articles[0].url}
-                        category={data.articles[0].category}
-                        source={data.articles[0].source}
-                        published={data.articles[0].published}
-                    />
-                </div>
+            <div className={'ns-standalone'}>
+                {true && <ArticleSwitcher />}
+                {true && <ArticleWithSubarticles /> }
+                {true && <StandaloneArticle showVideo /> }
+                {true && <BoxArticle />}
+            </div>
         );
 
         return (
@@ -113,3 +108,14 @@ export default class demo extends React.PureComponent {
         );
     }
 }
+
+const { bool, number } = PropTypes;
+Demo.propTypes = {
+    displayDemo: bool,
+    displayComponents: bool
+};
+DemoMultiArtcls.propTypes = {
+    count: number.isRequired,
+    special: bool,
+    last: bool
+};
