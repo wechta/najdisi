@@ -6,9 +6,20 @@
 - SCSS variables def is in /src/styles/defaults.scss
 - Responcive config is in /src/styles/mediaqueries.scss
 
-### Usage
+### DEV environment and export
 
 1. Run `npm install` (installs neccesary packages in node_modules)
 2. Run `npm start` (runs dev environment)
 3. Run `npm run bundle-dev` (builds dev package in /build folder - uncompressed)
 4. Run `npm run bundle-prod` (builds dev package in /build folder - compressed)
+
+### USAGE
+
+1. Copy content of build folder
+2. Include `styles/style.css` 
+3. Include `nsComponents.js`
+4. Include components:
+    - `najdisiComponents.showArticleSwitcher('API URL', document.getElementById("main"));`
+    - `najdisiComponents.showNormalArticle('API URL', document.getElementById("article"));`
+    - `najdisiComponents.showArticleWithSub('API URL', document.getElementById("sub"));`
+    - `najdisiComponents.showBoxArticles('API URL', document.getElementById("box"));`

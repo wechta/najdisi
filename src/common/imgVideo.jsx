@@ -39,13 +39,13 @@ export default class ImageVideo extends React.PureComponent {
     }
 
     render() {
-        const { image, video, imgLink, showVideo } = this.props;
+        const { image, video, imgLink } = this.props;
         const playing = this.state.playing;
 
         return (
             <div className={cx('wrapper')}>
                 <Choose>
-                    <When condition={video && showVideo}> 
+                    <When condition={video}> 
                         <div className={cx('player-wrapper')}>
                             <ReactPlayer
                                 className={cx('react-player')}
@@ -78,6 +78,5 @@ ImageVideo.propTypes = {
     image: string,
     video: string,
     imgLink: string,
-    forceImg: bool,
-    showVideo: bool
+    forceImg: bool
 };

@@ -1,25 +1,30 @@
-import Article from '../components/article';
+import StandaloneArticle from '../components/standaloneArticle';
 import ArticleSwitcher from '../components/articleSwitcher';
+import ArticleWithSubarticles from '../components/articleWithSubarticles';
+import BoxArticle from '../components/BoxArticle';
+
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-const showNormalArticle = (title, description, img, url, category, source, published, element) => {
-    ReactDOM.render(<Article
-        title={title}
-        description={description}
-        img={img}
-        url={url}
-        category={category}
-        source={source}
-        published={published}
-    />, element);
+const showNormalArticle = (apiUrl, element) => {
+    ReactDOM.render(<StandaloneArticle />, element);
 };
 
-const showArticleSwitcher = (articles, element) => {
-    ReactDOM.render(<ArticleSwitcher articles={articles} />, element);
+const showArticleSwitcher = (apiUrl, element) => {
+    ReactDOM.render(<ArticleSwitcher />, element);
+};
+
+const showArticleWithSub = (apiUrl, element) => {
+    ReactDOM.render(<ArticleWithSubarticles />, element);
+};
+
+const showBoxArticles = (apiUrl, element) => {
+    ReactDOM.render(<BoxArticle />, element);
 };
 
 module.exports = {
     showNormalArticle: showNormalArticle,
-    showArticleSwitcher: showArticleSwitcher
+    showArticleSwitcher: showArticleSwitcher,
+    showArticleWithSub: showArticleWithSub,
+    showBoxArticles: showBoxArticles
 };

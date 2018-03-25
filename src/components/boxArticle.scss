@@ -26,8 +26,10 @@ $articleHeight: 230px;
         display: flex;
         flex-direction: row;
         margin: 0;
-        &:first-of-type { margin-bottom: $spacing-xs; }
         &.nsmod-hide { display: none; }
+        &.nsmod-is-first {
+            margin-bottom: $spacing-xs;
+        }
     }
 }
 

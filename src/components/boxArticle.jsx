@@ -44,7 +44,7 @@ const getArticles = (articles, resp, lineCount) => { //make it better
         }
         content.push(
             <div key={i} className={cx('single', grid && 'hide')} style={style}>
-                <Article data={articles[i]} inBox showVideo />
+                <Article data={articles[i]} inBox />
             </div>
         );
     }
@@ -58,7 +58,7 @@ const getArticles = (articles, resp, lineCount) => { //make it better
 
     if (articles.length >= 2) {
         content.push(
-            <DualArticle key={'d' + 1} articles={articles} grid={grid} num={[0, 1]} />
+            <DualArticle key={'d' + 1} articles={articles} grid={grid} num={[0, 1]} firstDual />
         );
         if (articles.length === 3) {
             content.push(
@@ -79,14 +79,14 @@ const getArticles = (articles, resp, lineCount) => { //make it better
     return content;
 };
 
-const DualArticle = ({ articles, num, grid }) => {
+const DualArticle = ({ articles, num, grid, firstDual }) => {
     let content = [];
 
     num.map((n, i) => {
         if (n || n === 0) {
             content.push(
                 <div key={i} className={cx('single')}>
-                    <Article data={articles[n]} inBox showVideo />
+                    <Article data={articles[n]} inBox />
                 </div>
             );
         } else {
@@ -95,37 +95,15 @@ const DualArticle = ({ articles, num, grid }) => {
     });
 
     return (
-        <div className={cx('dual', !grid && 'hide')}>{content}</div>
+        <div className={cx('dual', [!grid && 'hide', firstDual && 'is-first'])}>{content}</div>
     );
 };
 
 @cmpApiHoc({ articles: 6, mock: true })
 @sizeMe()
 export default class BoxArticle extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hasData: this.checkdata(props)
-        };
-    }
-
-    componentWillReceiveProps(np, ns) {
-        const hasData = this.checkdata(np);
-        if (hasData !== ns.hasData) {
-            this.setState({ hasData: hasData });
-        }
-    }
-
-    checkdata(props) {
-        if (props.title && props.img) {
-            return true;
-        }
-        return false;
-    }
-
     render() {
         const { data, size } = this.props;
-        const { hasData } = this.state;
         let resp = responsive(size.width);
 
         return (
@@ -149,5 +127,6 @@ BoxArticle.propTypes = {
 DualArticle.propTypes = {
     articles: array,
     grid: bool,
-    num: array
+    num: array,
+    firstDual: bool
 };

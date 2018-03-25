@@ -33,7 +33,7 @@ module.exports = {
         test: /\.(pdf|jpg|png|gif|svg|ico)$/,
         use: [
           {
-            loader: 'file-loader'
+            loader: 'file-loader?name=./images/[hash].[ext]'
           }
         ]
       }

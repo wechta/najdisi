@@ -56,7 +56,7 @@ export default class ArticleSwitcher extends React.PureComponent {
         let lines = false;
         for (let i = 1; i <= 20; i++) {
             if ((textElH >= (TEXT_LINE_H * i)) && (textElH < (TEXT_LINE_H * (i + 1)))) {
-                lines = i;
+                lines = i - 1;
                 this.setState({ lineCount: lines });
                 return;
             }
@@ -173,6 +173,16 @@ export default class ArticleSwitcher extends React.PureComponent {
 
         let resp = responsive(size.width); //move that somewhere else
 
+        const descElement = filtered.length && lineCount && description.length ?
+            <NanoClamp
+                key={selectedEl}
+                accessibility={false}
+                debounce={100}
+                is="div"
+                lines={lineCount}
+                text={description}
+            /> : null;
+
         return (
             <If condition={filtered.length}>
                 <div className={resp}>
@@ -190,16 +200,7 @@ export default class ArticleSwitcher extends React.PureComponent {
                                         <a className={linkSeo && 'nsmod-clickable'} href={linkSeo} target="_blank">{title}</a>
                                     </div>
                                     <div ref={this.setRef} className={cx('content', 'text')}>
-                                        <div className={cx('text-wrap')}>
-                                            {(lineCount && description.length) &&
-                                                <NanoClamp
-                                                    accessibility={false}
-                                                    debounce={100}
-                                                    is="div"
-                                                    lines={lineCount}
-                                                    text={description}
-                                                />}
-                                        </div>
+                                        <div className={cx('text-wrap')}>{descElement}</div>
                                     </div>
                                 </div>
                             </div>

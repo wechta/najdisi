@@ -18,7 +18,7 @@ const cx = classPrefixer('article');
 
 const TEXT_LINE_H = 14;
 
-@sizeMe()
+@sizeMe({ refreshRate: 16 })
 export default class Article extends React.Component {
     constructor(props) {
         super(props);
@@ -54,7 +54,7 @@ export default class Article extends React.Component {
         let lines = false;
         for (let i = 1; i <= 20; i ++) {
             if ((textElH >= (TEXT_LINE_H * i)) && (textElH < (TEXT_LINE_H * (i + 1)))) {
-                lines = i;
+                lines = i - 1;
                 this.setState({ lineCount: lines });
                 return;
             }
@@ -73,16 +73,25 @@ export default class Article extends React.Component {
     }
 
     render() {
-        const { subCmp, data, inBox, size, showVideo } = this.props;
+        const { subCmp, data, inBox, size } = this.props;
         const { hasData, lineCount } = this.state;
         let resp = responsive(size.width); //move that somewhere else
+
+        const descElement = hasData && lineCount && data.description.length ?
+            <NanoClamp
+                accessibility={false}
+                debounce={100}
+                is="div"
+                lines={lineCount}
+                text={data.description}
+            /> : null;
 
         return (
             <If condition={hasData}>
                 <div className={resp}>
                     <div className={cx('wrapper', inBox && 'inbox')}>
                         <div className={cx('img-holder', inBox && 'inbox')}>
-                            <ImageVideo image={data.image} video={data.video} imgLink={data.linkSeo} showVideo={showVideo} />
+                            <ImageVideo image={data.image} video={data.video} imgLink={data.linkSeo} />
                         </div>
                         <div className={cx('holder', [subCmp && 'has-item', inBox && 'inbox'])}>
                             <div className={cx('wrap', subCmp && 'has-item')}>
@@ -91,17 +100,7 @@ export default class Article extends React.Component {
                                     <a className={data.linkSeo && 'nsmod-clickable'} href={data.linkSeo} target="_blank">{data.title}</a>
                                 </div>
                                 <div ref={this.setRef} className={cx('content', 'text')}>
-                                    <div className={cx('text-wrap')}>
-                                        {(lineCount && data.description.length) &&
-                                            <NanoClamp
-                                                accessibility={false}
-                                                debounce={100}
-                                                is="div"
-                                                lines={lineCount}
-                                                text={data.description}
-                                            />
-                                        }
-                                    </div>
+                                    <div className={cx('text-wrap')}>{descElement}</div>
                                 </div>
                             </div>
                             {subCmp &&
@@ -127,6 +126,5 @@ Article.propTypes = {
     size: object,
     data: object,
     subCmp: element,
-    inBox: bool,
-    showVideo: bool
+    inBox: bool
 };
