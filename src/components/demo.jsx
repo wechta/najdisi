@@ -8,7 +8,7 @@ import StandaloneArticle from './standaloneArticle';
 import ArticleWithSubarticles from './articleWithSubarticles';
 
 import ArticleSwitcher from './articleSwitcher';
-import BoxArticle from './BoxArticle';
+import BoxArticle from './boxArticle';
 
 import data from './mock.json';
 import classPrefixer from '../helpers/classPrefixer';

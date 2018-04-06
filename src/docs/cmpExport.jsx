@@ -1,7 +1,7 @@
 import StandaloneArticle from '../components/standaloneArticle';
 import ArticleSwitcher from '../components/articleSwitcher';
 import ArticleWithSubarticles from '../components/articleWithSubarticles';
-import BoxArticle from '../components/BoxArticle';
+import BoxArticle from '../components/boxArticle';
 
 import ReactDOM from 'react-dom';
 import React from 'react';
