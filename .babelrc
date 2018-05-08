@@ -3,6 +3,6 @@
   "plugins": [
     "jsx-control-statements",
     "transform-class-properties",
-    "@babel/plugin-proposal-decorators"
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
   ]
 }
