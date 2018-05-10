@@ -70,7 +70,7 @@ export default class Article extends React.Component {
     };
 
     checkdata(props) {
-        if ((props.title && props.image) || (props.data && props.data.title && props.data.image)) {
+        if (props.data && props.data.title && props.data.link) {
             return true;
         }
         return false;

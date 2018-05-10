@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import dummyImg from '../assets/png/dummy300x150.png';
 import mock from '../components/mock.json';
 const fetch = require('isomorphic-fetch');
 
@@ -50,6 +50,7 @@ export function cmpApiHoc(cmpSetup) {
                         apiResult: mock
                     });
                 } else {
+                    //mockup api: const urlMock = 'http://demo6733620.mockable.io/'; eslint-disable-line
                     if (!url) return;
 
                     let response, parsedData;
@@ -90,7 +91,16 @@ export function cmpApiHoc(cmpSetup) {
 
                 if (!artNum || !data.results || !data.results.document || !data.results.document.length) {
                     return null;
-                } else if (cmpSetup.noArray) {
+                }
+
+                data.results.document.filter(function(el) {
+                    if (!el.image) {
+                        el.image = dummyImg;
+                    }
+                    return el;
+                });
+
+                if (cmpSetup.noArray) {
                     return data.results.document[0];
                 } else {
                     return data.results.document.slice(0, artNum);
