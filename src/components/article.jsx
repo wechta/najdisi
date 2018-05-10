@@ -29,8 +29,10 @@ export default class Article extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.updateHeight);
-        this.getTxtElHeight(this.containerRef.offsetHeight);
+        if(this.state.hasData){
+            window.addEventListener('resize', this.updateHeight);
+            this.getTxtElHeight(this.containerRef.offsetHeight);
+        }
     }
 
     componentWillReceiveProps(np, ns) {
@@ -46,8 +48,10 @@ export default class Article extends React.Component {
     }
 
     updateHeight = () => {
-        const height = this.containerRef && this.containerRef.offsetHeight;
-        this.getTxtElHeight(height);
+        if(this.state.hasData){
+            const height = this.containerRef && this.containerRef.offsetHeight;
+            this.getTxtElHeight(height);
+        }
     }
 
     getTxtElHeight = (textElH) => {
