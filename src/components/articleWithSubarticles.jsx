@@ -28,8 +28,10 @@ class SubSwitcher extends React.PureComponent {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.updateHeight);
-        this.getTxtElHeight(this.containerRef.offsetHeight);
+        if (this.state.filtered.length) {
+            window.addEventListener('resize', this.updateHeight);
+            this.getTxtElHeight(this.containerRef.offsetHeight);
+        }
     }
 
     componentWillUnmount() {
@@ -65,7 +67,7 @@ class SubSwitcher extends React.PureComponent {
     filterData = (props) => {
         let filteredArticles = [];
         if (props.data && Array.isArray(props.data) && props.data.length) {
-            filteredArticles = props.data.filter(art => art.title && art.image && art);
+            filteredArticles = props.data.filter(art => art.title && art.link && art);
         }
         return filteredArticles;
     }

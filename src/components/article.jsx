@@ -48,7 +48,7 @@ export default class Article extends React.Component {
     }
 
     updateHeight = () => {
-        if(this.state.hasData){
+        if (this.state.hasData) {
             const height = this.containerRef && this.containerRef.offsetHeight;
             this.getTxtElHeight(height);
         }
