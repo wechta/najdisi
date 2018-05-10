@@ -15,6 +15,7 @@ import classPrefixer from '../helpers/classPrefixer';
 
 const cx = classPrefixer('demo');
 
+const urlMock = 'http://demo6733620.mockable.io/';
 
 const getDemoArticles = (articles, keys) => {
     return (
@@ -93,10 +94,10 @@ export default class Demo extends React.PureComponent {
 
         const articles = (
             <div className={'ns-standalone'}>
-                {true && <ArticleSwitcher />}
-                {true && <ArticleWithSubarticles /> }
-                {true && <StandaloneArticle showVideo /> }
-                {true && <BoxArticle />}
+                {true && <ArticleSwitcher apiUrl={urlMock} />}
+                {true && <ArticleWithSubarticles apiUrl={urlMock} /> }
+                {true && <StandaloneArticle apiUrl={urlMock} showVideo /> }
+                {true && <BoxArticle apiUrl={urlMock} />}
             </div>
         );
 

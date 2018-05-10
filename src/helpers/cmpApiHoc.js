@@ -53,6 +53,7 @@ export function cmpApiHoc(cmpSetup) {
                     //mockup api: const urlMock = 'http://demo6733620.mockable.io/'; eslint-disable-line
                     if (!url) return;
 
+
                     let response, parsedData;
                     fetch(url)
                         .then(result => {

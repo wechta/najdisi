@@ -5,6 +5,6 @@ import { render } from 'react-dom';
 
 import Demo from '../components/demo';
 
-const index = <Demo displayDemo={true} displayComponents={false} />;
+const index = <Demo displayDemo={false} displayComponents={true} />;
 
 render(index, document.getElementById('content'));

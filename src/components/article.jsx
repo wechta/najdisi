@@ -29,7 +29,7 @@ export default class Article extends React.Component {
     }
 
     componentDidMount() {
-        if(this.state.hasData){
+        if (this.state.hasData) {
             window.addEventListener('resize', this.updateHeight);
             this.getTxtElHeight(this.containerRef.offsetHeight);
         }

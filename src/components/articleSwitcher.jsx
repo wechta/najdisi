@@ -26,10 +26,8 @@ export default class ArticleSwitcher extends React.PureComponent {
     }
 
     componentDidMount() {
-        if(this.state.hasData){
-            window.addEventListener('resize', this.updateHeight);
-            this.getTxtElHeight(this.containerRef.offsetHeight);
-        }
+        window.addEventListener('resize', this.updateHeight);
+        this.getTxtElHeight(this.containerRef.offsetHeight);
     }
 
     componentWillReceiveProps(np, ns) {
@@ -50,7 +48,7 @@ export default class ArticleSwitcher extends React.PureComponent {
     }
 
     updateHeight = () => {
-        if(this.state.hasData){
+        if (this.state.filtered.length) {
             const height = this.containerRef && this.containerRef.offsetHeight;
             this.getTxtElHeight(height);
         }
