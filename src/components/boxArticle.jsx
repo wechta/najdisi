@@ -99,7 +99,7 @@ const DualArticle = ({ articles, num, grid, firstDual }) => {
     );
 };
 
-@cmpApiHoc({ articles: 6, mock: true })
+@cmpApiHoc({ articles: 6, mock: false })
 @sizeMe()
 export default class BoxArticle extends React.PureComponent {
     render() {

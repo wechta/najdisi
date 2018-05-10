@@ -149,7 +149,7 @@ class SubSwitcher extends React.PureComponent {
     }
 }
 
-@cmpApiHoc({ articles: 6, mock: true })
+@cmpApiHoc({ articles: 6, mock: false })
 export default class ArticleWithSubarticles extends React.PureComponent {
     render() {
         const { data } = this.props;
