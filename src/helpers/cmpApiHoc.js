@@ -55,7 +55,7 @@ export function cmpApiHoc(cmpSetup) {
 
 
                     let response, parsedData;
-                    fetch(url)
+                    fetch(url, {credentials: 'same-origin'})
                         .then(result => {
                             response = result.clone();
                             return result.text();
