@@ -60,7 +60,7 @@ export function cmpApiHoc(cmpSetup) {
                     if (!url) return;
 
                     let response, parsedData;
-                    fetch(url)
+                    fetch(url, {credentials: 'include'})
                         .then(result => {
                             response = result.clone();
                             return result.text();
