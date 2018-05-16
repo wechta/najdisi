@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import dummyImg from '../assets/png/dummy300x150.png';
 import mock from '../components/mock.json';
 const fetch = require('isomorphic-fetch');
@@ -18,8 +18,16 @@ export function cmpApiHoc(cmpSetup) {
             }
 
             componentDidMount() {
-                this._isMounted = true;
-                this.fetchData(this.props.apiUrl);
+                if (!this.props.jsonData) {
+                    this._isMounted = true;
+                    this.fetchData(this.props.apiUrl);
+                } else if (this.props.jsonData) {
+                    const parsedData = this.parseRaw(this.props.jsonData);
+                    this.setState({ // eslint-disable-line
+                        parsed: true,
+                        data: parsedData
+                    });
+                }
             }
 
             componentWillReceiveProps(np, ns) {
@@ -31,7 +39,6 @@ export function cmpApiHoc(cmpSetup) {
             componentDidUpdate() {
                 if (!this.state.parsed && this.state.apiResult) {
                     const parsedData = this.parseData(this.state.apiResult);
-
                     this.setState({ // eslint-disable-line
                         parsed: true,
                         data: parsedData
@@ -50,9 +57,7 @@ export function cmpApiHoc(cmpSetup) {
                         apiResult: mock
                     });
                 } else {
-                    //mockup api: const urlMock = 'http://demo6733620.mockable.io/'; eslint-disable-line
                     if (!url) return;
-
 
                     let response, parsedData;
                     fetch(url)
@@ -108,6 +113,14 @@ export function cmpApiHoc(cmpSetup) {
                 }
             }
 
+            parseRaw = data => {
+                let el = data;
+                if (!el.image) {
+                    el.image = dummyImg;
+                }
+                return el;
+            }
+
             render() {
                 const { data } = this.state;
 
@@ -121,7 +134,8 @@ export function cmpApiHoc(cmpSetup) {
 
         const { string } = PropTypes;
         CmpApiHoc.propTypes = {
-            apiUrl: string
+            apiUrl: string,
+            jsonData: object
         };
 
         return CmpApiHoc;

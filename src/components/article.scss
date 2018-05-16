@@ -51,7 +51,7 @@ $img-inbox-h-ratio: 46.5%;
         }
     }
     &_title {
-        margin-top: $spacing-l;
+        margin-top: $spacing-m;
         font-size: $font-size-m;
         &.nsmod-inbox {
             margin: 0;
@@ -74,8 +74,8 @@ $img-inbox-h-ratio: 46.5%;
     &_content{ line-height: $line-height-s; }
 
     &_item--wrapper {
-        max-width: 215px;
-        flex: 1 0 215px;
+        max-width: 180px;
+        flex: 1 0 180px;
         position: relative;
     }
     &_item--border {

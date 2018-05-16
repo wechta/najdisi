@@ -8,32 +8,31 @@ import { dateParser } from '../helpers/dateParser';
 
 const cx = classPrefixer('source-list');
 
-export default class ArtMetadata extends React.PureComponent {
+const check = (val) => { return (val || ''); };
+
+export default class SourceList extends React.PureComponent {
     render() {
-        const { category, source, published, pubDateDiff, center } = this.props;
+        const { category, source, published, pubDateDiff, center, percentage } = this.props;
+        let krep = ' • ';
+
+        const string =
+            (percentage ? ((check(percentage) + '%') + ((category || source || published) ? krep : '')) : '') +
+            (category ? (check(category) + ((source || published || pubDateDiff) ? krep : '')) : '') +
+            (source ? (check(source) + ((published || pubDateDiff) ? krep : '')) : '') +
+            ((published || pubDateDiff) ? check(pubDateDiff ? pubDateDiff : dateParser(published)) : '');
+
         return (
-            <div className={cx('wrapper', ['secondary', center && 'center'])}>
-                {category &&
-                    <div className={cx('cat')}>
-                        {category}
-                        {(source || published) && <span className={cx('separator')}>&#8226;</span>}
-                    </div>
-                }
-                {source && <div className={cx('source')}>
-                    {source}
-                    {(published || pubDateDiff) && <span className={cx('separator')}>&#8226;</span>}
-                </div>}
-                {(published || pubDateDiff) && <div className={cx('time')}>{pubDateDiff ? pubDateDiff : dateParser(published)}</div>}
-            </div>
+            <div className={cx('wrapper', ['secondary', center && 'center'])}>{(string)}</div>
         );
     }
 }
 
-const { string, bool } = PropTypes;
-ArtMetadata.propTypes = {
+const { string, bool, number, oneOfType } = PropTypes;
+SourceList.propTypes = {
     category: string,
     source: string,
     published: string,
     center: bool,
+    percentage: oneOfType([number, bool]),
     pubDateDiff: string
 };

@@ -8,5 +8,5 @@
         &.nsmod-center{ justify-content: center; }
     }
     &_separator { padding: 0 $spacing-xs; }
-    &_cat, &_source { font-weight: $font-weight-semi-bold; }
+    &_cat, &_source, &_percent { font-weight: $font-weight-semi-bold; }
 }

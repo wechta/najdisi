@@ -22,9 +22,14 @@ const showBoxArticles = (apiUrl, element) => {
     ReactDOM.render(<BoxArticle apiUrl={apiUrl} />, element);
 };
 
+const showNormalArticleByData = (jsonData, element) => {
+    ReactDOM.render(<StandaloneArticle jsonData={jsonData} />, element);
+};
+
 module.exports = {
     showNormalArticle: showNormalArticle,
     showArticleSwitcher: showArticleSwitcher,
     showArticleWithSub: showArticleWithSub,
-    showBoxArticles: showBoxArticles
+    showBoxArticles: showBoxArticles,
+    showNormalArticleByData: showNormalArticleByData
 };

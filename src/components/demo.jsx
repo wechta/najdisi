@@ -61,18 +61,18 @@ export default class Demo extends React.PureComponent {
                     <div className={cx('content')}>
                         <div className={cx('central')}>
 
-                            <ArticleSwitcher />
+                            <ArticleSwitcher apiUrl={urlMock} />
 
                             <div className={cx('spacer')} />
-                            <BoxArticle />
-
-                            <div className={cx('spacer')} />
-
-                            <ArticleWithSubarticles />
+                            <BoxArticle apiUrl={urlMock} />
 
                             <div className={cx('spacer')} />
 
-                            {false && <DemoMultiArtcls count={4} special />}
+                            <ArticleWithSubarticles apiUrl={urlMock} />
+
+                            <div className={cx('spacer')} />
+
+                            {false && <DemoMultiArtcls apiUrl={urlMock} count={4} special />}
 
                             {getDemoArticles(data.articles, [2, 3])}
 
@@ -82,10 +82,7 @@ export default class Demo extends React.PureComponent {
 
                             {getDemoArticles(data.articles, [4, 5])}
 
-                            <DemoMultiArtcls count={4} last />
-                        </div>
-                        <div className={cx(['sidebar', 'box'])}>
-                            <div className={cx('box__small-inner')}>{'sidebar'}</div>
+                            <DemoMultiArtcls apiUrl={urlMock} count={4} last />
                         </div>
                     </div>
                 </div>
