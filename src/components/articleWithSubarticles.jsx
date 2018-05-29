@@ -129,13 +129,15 @@ class SubSwitcher extends React.PureComponent {
                                     <SourceList category={article.category} source={article.channel} published={article.published} pubDateDiff={article.pubDateDiff} />
                                     <div ref={this.setRef} className={cx('title', 'title')}>
                                         {(lineCount && article.title.length) &&
-                                            <NanoClamp
-                                                accessibility={false}
-                                                debounce={100}
-                                                is="div"
-                                                lines={lineCount}
-                                                text={article.title}
-                                            />
+                                            <a className={article.linkSeo && 'nsmod-clickable'} href={article.linkSeo} target="_blank">
+                                                <NanoClamp
+                                                    accessibility={false}
+                                                    debounce={100}
+                                                    is="div"
+                                                    lines={lineCount}
+                                                    text={article.title}
+                                                />
+                                            </a>
                                         }
                                     </div>
                                 </div>

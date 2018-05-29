@@ -6,6 +6,7 @@ $text-rows-slider: 4;
 
 .ns-articles-switcher_ {
     &_wrapper {
+        font-family: 'Roboto';
         width: 100%;
         display: flex;
         background: $bcg-article;
@@ -17,7 +18,7 @@ $text-rows-slider: 4;
     &_holder {
         width: 100%;
         overflow: hidden;
-        padding: $spacing-l $spacing-m;
+        padding: $spacing-25 $spacing-m;
         position: relative;
         padding-right: $spacing-m * 2;
         overflow: hidden;

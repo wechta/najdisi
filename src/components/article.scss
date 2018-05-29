@@ -5,6 +5,7 @@ $img-inbox-h-ratio: 46.5%;
 
 .ns-article_ {
     &_wrapper {
+        font-family: 'Roboto';
         width: 100%;
         height: $height-max-img;
         display: flex;
@@ -40,7 +41,7 @@ $img-inbox-h-ratio: 46.5%;
     &_holder {
         width: 100%;
         overflow: hidden;
-        padding: $spacing-l $spacing-m;
+        padding: $spacing-25 $spacing-m;
         position: relative;
         overflow: hidden;
         &.nsmod-has-item { display: flex; }
@@ -57,6 +58,7 @@ $img-inbox-h-ratio: 46.5%;
             margin: 0;
             font-size: $font-size-s;
         }
+        &.nsmod-has-color { color: $color-title-link; }
     }
     &_wrap {
         height: 100%;

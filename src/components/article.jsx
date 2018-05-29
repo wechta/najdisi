@@ -58,7 +58,7 @@ export default class Article extends React.Component {
         let lines = false;
         for (let i = 1; i <= 20; i ++) {
             if ((textElH >= (TEXT_LINE_H * i)) && (textElH < (TEXT_LINE_H * (i + 1)))) {
-                lines = i - 1;
+                lines = i;
                 this.setState({ lineCount: lines });
                 return;
             }
@@ -80,7 +80,6 @@ export default class Article extends React.Component {
         const { subCmp, data, inBox, size } = this.props;
         const { hasData, lineCount } = this.state;
         let resp = responsive(size.width); //move that somewhere else
-
         const descElement = hasData && lineCount && data.description.length ?
             <NanoClamp
                 accessibility={false}
@@ -100,7 +99,7 @@ export default class Article extends React.Component {
                         <div className={cx('holder', [subCmp && 'has-item', inBox && 'inbox'])}>
                             <div className={cx('wrap', subCmp && 'has-item')}>
                                 <SourceList category={data.category} source={data.channel} published={data.published} pubDateDiff={data.pubDateDiff} />
-                                <div className={cx('title', ['title', inBox && 'inbox'])}>
+                                <div className={cx('title', ['title', inBox && 'inbox', subCmp && 'has-color'])}>
                                     <a className={data.linkSeo && 'nsmod-clickable'} href={data.linkSeo} target="_blank">{data.title}</a>
                                 </div>
                                 <div ref={this.setRef} className={cx('content', 'text')}>
