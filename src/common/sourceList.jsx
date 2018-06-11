@@ -21,7 +21,7 @@ export default class SourceList extends React.PureComponent {
     render() {
         const { category, source, published, pubDateDiff, center, percentage } = this.props;
 
-        const baseUrl = window.location.protocol + window.location.host;
+        const baseUrl = window.location.protocol + '//' + window.location.host;
 
         return (
             <div className={cx('wrapper', ['secondary', center && 'center'])}>
@@ -33,7 +33,7 @@ export default class SourceList extends React.PureComponent {
                 }
                 {category &&
                     <div className={cx('cat')}>
-                        <a href={baseUrl + '/kategorija/' + category} target="_blank">{checkLength(category)}</a>
+                        <a href={baseUrl + '/kategorija/' + category.toLowerCase()} target="_blank">{checkLength(category)}</a>
                         {(source || published || pubDateDiff) && <span className={cx('separator')}>&#8226;</span>}
                     </div>
                 }
