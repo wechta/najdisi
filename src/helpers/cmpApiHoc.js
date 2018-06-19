@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
-import dummyImg from '../assets/png/dummy300x150.png';
+import dummyImg from '../assets/png/novica271x203.png';
 import mock from '../components/mock.json';
 const fetch = require('isomorphic-fetch');
 
@@ -81,7 +81,6 @@ export function cmpApiHoc(cmpSetup) {
                             this.setState({
                                 apiResult: parsedData
                             });
-
                         })
                         .catch(error => {
                             return;
