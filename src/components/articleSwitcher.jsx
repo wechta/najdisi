@@ -15,7 +15,7 @@ const cx = classPrefixer('articles-switcher');
 
 const TEXT_LINE_H = 14;
 
-@cmpApiHoc({ articles: 5, mock: false })
+@cmpApiHoc({ articles: 10, mock: false })
 @sizeMe({ refreshRate: 16 })
 export default class ArticleSwitcher extends React.PureComponent {
     constructor(props) {
