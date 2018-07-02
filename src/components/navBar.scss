@@ -1,0 +1,217 @@
+@import '../styles/defaults';
+@import '../styles/mixins';
+
+$baseClr: #292f41;
+$borderClr: #444;
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+}
+.ns-navbar__wrapper {
+    li {
+        display: inline-block;
+        float: left;
+        padding: 0 $spacing-s;
+    }
+    li a {
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        background: $baseClr;
+        text-decoration: none;
+    }
+    li:hover a {
+        text-decoration: underline;
+    }
+    li:hover ul a {
+        height: 30px;
+        line-height: 30px;
+        text-decoration: none;
+    }
+    li:hover ul a:hover {
+        background: darken($baseClr, 5%);
+    }
+    li ul {
+        display: none;
+        height: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+    li ul li {
+        padding: 0;
+        display: block;
+        float: none;
+        border-bottom: solid 1px $borderClr;
+        height: 30px;
+        &:last-child {
+            border-bottom-width: 0;
+            a {
+                border-radius: 0 0 3px 3px;
+            }
+
+        }
+    }
+    li ul li a {
+        width: auto;
+        min-width: 100px;
+        padding: 0 $spacing-s;
+        text-align: left;
+    }
+    ul li a:hover + .ns-navbar__hidden, .ns-navbar__hidden:hover {
+        display: block;
+    }
+    &_home {
+        display: none;
+    }
+    input[type=checkbox]{
+        display: none;
+    }
+    input[type=checkbox]:checked ~ #menu{
+        display: block;
+    }
+    input[type=checkbox]:checked ~ #home{
+        display: block;
+    }
+    input[type=checkbox]:checked ~ #login{
+        display: none;
+    }
+}
+
+.ns-navbar_ {
+    &_wrapper {
+        font-family: 'Roboto';
+        height: 40px;
+        width: 100%;
+        background: $baseClr;
+        display: flex;
+        font-weight: $font-weight-bold;
+        position: relative;
+        color: #fff;
+    }
+    &_show-menu {
+        text-decoration: none;
+        padding: 10px 0;
+        display: none;
+        cursor: pointer;
+    }
+    &_subnav { margin-left: $spacing-xs; }
+    &_hidden {
+        height: 20px;
+    }
+    &_hidden li a img {
+        transform: rotate(-90deg);
+        margin: 0 2px 1px 0;
+    }
+    &_home {
+        display: none;
+        position: absolute;
+        right: -999px;
+        cursor: pointer;
+    }
+    &_hidden-wrapper {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+    }
+    &_hidden-el {
+        padding: 0 $spacing-s;
+        display: inline;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 540px){
+    ul {
+        position: static;
+        display: none;
+    }
+    li {
+        padding: 0;
+        margin-bottom: 1px;
+    }
+    li:hover ul a {
+        background: lighten($baseClr, 10%);
+    }
+    ul li, li a {
+        width: 100%;
+    }
+    .ns-navbar_ {
+        &_wrapper {
+            li {
+                padding: 0;
+                border-top: solid 1px $borderClr;
+                //&:first-of-type { border-top: solid 1px $borderClr; }
+            }
+            li ul li:last-child a { border-radius: 0; }
+        }
+        &_show-menu {
+            display: block;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            img {
+                width: 25px;
+                height: 20px
+            }
+        }
+        &_menu {
+            width: 100%;
+            margin-top: 40px;
+        }
+        &_home {
+            display: none;
+            position: absolute;
+            right: 50%;
+            margin-right: -20px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            img {
+                width: 20px;
+                height: 18px;
+            }
+        }
+
+        &_login {
+            right: auto;
+            left: 5px;
+        }
+        &_more-btn { display: none !important; }
+        &_more {
+            border-top: none !important;
+            &:hover ul a {
+                background: $baseClr;
+            }
+            &:hover ul a:hover {
+                background: $baseClr !important;
+            }
+            .ns-navbar__hidden {
+                display: block;
+                box-shadow: none;
+                li {
+                    height: 40px;
+                    border-bottom: none;
+                }
+                li a {
+                    text-align: center;
+                    height: 40px !important;
+                    line-height: 40px !important;
+                    padding: 0;
+                }
+                li a img { display: none; }
+                li:hover ul a {
+                    height: 40px;
+                    line-height: 40px;
+                }
+                li:hover a {
+                    text-decoration: underline;
+                }
+                ul li { height: 40px; }
+            }
+        }
+    }
+}

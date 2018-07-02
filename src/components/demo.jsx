@@ -10,6 +10,8 @@ import ArticleWithSubarticles from './articleWithSubarticles';
 import ArticleSwitcher from './articleSwitcher';
 import BoxArticle from './boxArticle';
 
+import NavBar from './navBar';
+
 import data from './mock.json';
 import classPrefixer from '../helpers/classPrefixer';
 
@@ -46,6 +48,69 @@ const DemoMultiArtcls = ({ count, special, last }) => {
     );
 };
 
+const menuArray = [
+    {
+        title: 'N',
+        link: 'http://novice.najdi.si'
+    },
+    {
+        title: 'Vroče zgodbe',
+        link: '/kategorija/vroce-zgodbe'
+    },
+    {
+        title: 'Slovenija',
+        link: '/kategorija/slovenija'
+    },
+    {
+        title: 'Regionalne novice',
+        link: '/kategorija/regionalne-novice'
+    },
+    {
+        title: 'Svet',
+        link: '/kategorija/svet'
+    },
+    {
+        title: 'Gospodarstvo',
+        link: '/kategorija/gospodarstvo'
+    },
+    {
+        title: 'Šport',
+        link: '/kategorija/sport'
+    },
+    {
+        title: 'Kronika',
+        link: '/kategorija/kronika'
+    },
+    {
+        title: 'Zanimivosti',
+        link: '/kategorija/zanimivosti'
+    },
+    {
+        title: 'Avtomobilizem',
+        link: '/kategorija/avtomobilizem'
+    },
+    {
+        title: 'Znanost in IT',
+        link: '/kategorija/znanost-in-it'
+    },
+    {
+        title: 'Kultura',
+        link: '/kategorija/kultura'
+    },
+    {
+        title: 'Lepota in zdravje',
+        link: '/kategorija/lepota-in-zdravje'
+    },
+    {
+        title: 'Vreme',
+        link: 'http://vreme.alpha.najdi.si'
+    },
+    {
+        title: 'Seznam virov',
+        link: 'http://novice.alpha.najdi.si/seznamvirov'
+    }
+];
+
 
 export default class Demo extends React.PureComponent {
     render() {
@@ -54,7 +119,13 @@ export default class Demo extends React.PureComponent {
         const demoContent = (
             <div key={1} className={'ns-demo'}>
                 <div className={cx('header')} />
+
+                <div className={cx('navbar')}>
+                    <NavBar data={menuArray} />
+                </div>
+
                 <div className={cx('wrapper')}>
+
                     <div className={cx(['ad', 'ad--central', 'box'])}>
                         <div className={cx('box__small-inner')}>{'ad space'}</div>
                     </div>
