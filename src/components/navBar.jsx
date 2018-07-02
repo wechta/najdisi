@@ -103,7 +103,7 @@ export default class NavBar extends React.PureComponent {
                     {
                         topItems.map((ti, idx) => {
                             return (
-                                <li><a href={ti.link}>{ti.title}</a></li>
+                                <li key={`top_${idx}`}><a href={ti.link}>{ti.title}</a></li>
                             );
                         })
                     }
@@ -117,7 +117,7 @@ export default class NavBar extends React.PureComponent {
                                 {
                                     moreItems.map((mi, idx) => {
                                         return (
-                                            <li><a href={mi.link}><img className={cx('subnav')} src={subNav} />{mi.title}</a></li>
+                                            <li key={`top_${idx}`}><a href={mi.link}><img className={cx('subnav')} src={subNav} />{mi.title}</a></li>
                                         );
                                     })   
                                 }
