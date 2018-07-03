@@ -2,6 +2,7 @@ import StandaloneArticle from '../components/standaloneArticle';
 import ArticleSwitcher from '../components/articleSwitcher';
 import ArticleWithSubarticles from '../components/articleWithSubarticles';
 import BoxArticle from '../components/boxArticle';
+import NavBar from '../components/navBar';
 
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -26,10 +27,15 @@ const showNormalArticleByData = (jsonData, element) => {
     ReactDOM.render(<StandaloneArticle jsonData={jsonData} />, element);
 };
 
+const showMenu = (menuData, element) => {
+    ReactDOM.render(<NavBar data={menuData} />, element);
+};
+
 module.exports = {
     showNormalArticle: showNormalArticle,
     showArticleSwitcher: showArticleSwitcher,
     showArticleWithSub: showArticleWithSub,
     showBoxArticles: showBoxArticles,
-    showNormalArticleByData: showNormalArticleByData
+    showNormalArticleByData: showNormalArticleByData,
+    showMenu: showMenu
 };

@@ -6,13 +6,72 @@ import PropTypes from 'prop-types';
 import classPrefixer from '../helpers/classPrefixer';
 
 import subNav from '../assets/png/subnav.png';
-import burgerMenu from '../assets/png/burger-menu.png';
-import home from '../assets/png/home.png';
-
 
 const cx = classPrefixer('navbar');
 
 const MORE_SPACE = 60;
+const menuArray = [
+    {
+        title: 'N',
+        link: 'http://novice.najdi.si'
+    },
+    {
+        title: 'Vroče zgodbe',
+        link: '/kategorija/vroce-zgodbe'
+    },
+    {
+        title: 'Slovenija',
+        link: '/kategorija/slovenija'
+    },
+    {
+        title: 'Regionalne novice',
+        link: '/kategorija/regionalne-novice'
+    },
+    {
+        title: 'Svet',
+        link: '/kategorija/svet'
+    },
+    {
+        title: 'Gospodarstvo',
+        link: '/kategorija/gospodarstvo'
+    },
+    {
+        title: 'Šport',
+        link: '/kategorija/sport'
+    },
+    {
+        title: 'Kronika',
+        link: '/kategorija/kronika'
+    },
+    {
+        title: 'Zanimivosti',
+        link: '/kategorija/zanimivosti'
+    },
+    {
+        title: 'Avtomobilizem',
+        link: '/kategorija/avtomobilizem'
+    },
+    {
+        title: 'Znanost in IT',
+        link: '/kategorija/znanost-in-it'
+    },
+    {
+        title: 'Kultura',
+        link: '/kategorija/kultura'
+    },
+    {
+        title: 'Lepota in zdravje',
+        link: '/kategorija/lepota-in-zdravje'
+    },
+    {
+        title: 'Vreme',
+        link: 'http://vreme.alpha.najdi.si'
+    },
+    {
+        title: 'Seznam virov',
+        link: 'http://novice.alpha.najdi.si/seznamvirov'
+    }
+];
 
 export default class NavBar extends React.PureComponent {
     constructor(props) {
@@ -24,11 +83,12 @@ export default class NavBar extends React.PureComponent {
             moreItems: []
         };
 
+        this.data = props.data && props.data.length ? props.data : menuArray;
         this.dataElWidths = [];
     }
 
     componentDidMount() {
-        if (this.hiddenRef && this.props.data.length) {          
+        if (this.hiddenRef && this.data.length) {
             [].slice.call(this.hiddenRef.children).forEach(el => {
                 this.dataElWidths.push(el.clientWidth);
             });
@@ -44,8 +104,8 @@ export default class NavBar extends React.PureComponent {
             let currWidth = 0,
                 top = [],
                 more = [];
-            
-            this.props.data.forEach((el, idx) => {
+
+            this.data.forEach((el, idx) => {
                 if ((currWidth + this.dataElWidths[idx] + MORE_SPACE) <= maxWidth) {
                     currWidth += this.dataElWidths[idx];
                     top.push(el);
@@ -72,7 +132,6 @@ export default class NavBar extends React.PureComponent {
 
     render() {
         const { initial, topItems, moreItems } = this.state;
-        const { data } = this.props;
 
         /* eslint-disable */
         return (
@@ -80,7 +139,7 @@ export default class NavBar extends React.PureComponent {
                 <If condition={initial}>
                     <div ref={this.setHiddenRef} className={cx('hidden-wrapper')}>
                         {
-                            data.map((el, idx) => {
+                            this.data && this.data.map((el, idx) => {
                                 return (
                                     <div key={`hidd_el_${idx}`} className={cx('hidden-el')}>
                                         <a href={el.link} >{el.title}</a>
@@ -89,42 +148,33 @@ export default class NavBar extends React.PureComponent {
                             })
                         }
                     </div>
-                <Else />
-                <label htmlFor="show-menu" className={cx('show-menu')}>
-                    <img className={cx('burger')} src={burgerMenu} />
-                </label>
-                <input type="checkbox" id="show-menu" role="button" />
-
-                <a className={cx('home')} id="home" href="#">
-                    <img src={home} />
-                </a>
-
-                <ul className={cx('menu')} id="menu">
-                    {
-                        topItems.map((ti, idx) => {
-                            return (
-                                <li key={`top_${idx}`}><a href={ti.link}>{ti.title}</a></li>
-                            );
-                        })
-                    }
-                    <If condition={moreItems.length}>
-                        <li className={cx('more')}>
-                            <a className={cx('more-btn')} href="#">
-                                {'Več'}
-                                <img className={cx('subnav')} src={subNav} />
-                            </a>
-                            <ul className={cx('hidden')}>
-                                {
-                                    moreItems.map((mi, idx) => {
-                                        return (
-                                            <li key={`more_${idx}`}><a href={mi.link}><img className={cx('subnav')} src={subNav} />{mi.title}</a></li>
-                                        );
-                                    })   
-                                }
-                            </ul>
-                        </li>
-                    </If>
-                </ul>
+                    <Else />
+                    <ul className={cx('menu')} id="menu">
+                        {
+                            topItems && topItems.map((ti, idx) => {
+                                return (
+                                    <li key={`top_${idx}`}><a href={ti.link}>{ti.title}</a></li>
+                                );
+                            })
+                        }
+                        <If condition={moreItems.length}>
+                            <li className={cx('more')}>
+                                <a className={cx('more-btn')} href="#">
+                                    {'Več'}
+                                    <img className={cx('subnav')} src={subNav} />
+                                </a>
+                                <ul className={cx('hidden')}>
+                                    {
+                                        moreItems.map((mi, idx) => {
+                                            return (
+                                                <li key={`more_${idx}`}><a href={mi.link}>{mi.title}</a></li>
+                                            );
+                                        })
+                                    }
+                                </ul>
+                            </li>
+                        </If>
+                    </ul>
                 </If>
             </div>
         );

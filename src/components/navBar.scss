@@ -25,16 +25,10 @@ ul {
         background: $baseClr;
         text-decoration: none;
     }
-    li:hover a {
-        text-decoration: underline;
-    }
     li:hover ul a {
-        height: 30px;
-        line-height: 30px;
         text-decoration: none;
-    }
-    li:hover ul a:hover {
-        background: darken($baseClr, 5%);
+        height: 40px;
+        line-height: 40px;
     }
     li ul {
         display: none;
@@ -45,10 +39,8 @@ ul {
         padding: 0;
         display: block;
         float: none;
-        border-bottom: solid 1px $borderClr;
-        height: 30px;
+        height: 40px;
         &:last-child {
-            border-bottom-width: 0;
             a {
                 border-radius: 0 0 3px 3px;
             }
@@ -63,6 +55,7 @@ ul {
     }
     ul li a:hover + .ns-navbar__hidden, .ns-navbar__hidden:hover {
         display: block;
+        right: 0;
     }
     &_home {
         display: none;
@@ -88,7 +81,7 @@ ul {
         width: 100%;
         background: $baseClr;
         display: flex;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-normal;
         position: relative;
         color: #fff;
     }
@@ -116,102 +109,11 @@ ul {
         position: absolute;
         display: flex;
         flex-direction: row;
+        visibility: none;
     }
     &_hidden-el {
         padding: 0 $spacing-s;
         display: inline;
         white-space: nowrap;
-    }
-}
-
-@media screen and (max-width: 540px){
-    ul {
-        position: static;
-        display: none;
-    }
-    li {
-        padding: 0;
-        margin-bottom: 1px;
-    }
-    li:hover ul a {
-        background: lighten($baseClr, 10%);
-    }
-    ul li, li a {
-        width: 100%;
-    }
-    .ns-navbar_ {
-        &_wrapper {
-            li {
-                padding: 0;
-                border-top: solid 1px $borderClr;
-                //&:first-of-type { border-top: solid 1px $borderClr; }
-            }
-            li ul li:last-child a { border-radius: 0; }
-        }
-        &_show-menu {
-            display: block;
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            img {
-                width: 25px;
-                height: 20px
-            }
-        }
-        &_menu {
-            width: 100%;
-            margin-top: 40px;
-        }
-        &_home {
-            display: none;
-            position: absolute;
-            right: 50%;
-            margin-right: -20px;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            img {
-                width: 20px;
-                height: 18px;
-            }
-        }
-
-        &_login {
-            right: auto;
-            left: 5px;
-        }
-        &_more-btn { display: none !important; }
-        &_more {
-            border-top: none !important;
-            &:hover ul a {
-                background: $baseClr;
-            }
-            &:hover ul a:hover {
-                background: $baseClr !important;
-            }
-            .ns-navbar__hidden {
-                display: block;
-                box-shadow: none;
-                li {
-                    height: 40px;
-                    border-bottom: none;
-                }
-                li a {
-                    text-align: center;
-                    height: 40px !important;
-                    line-height: 40px !important;
-                    padding: 0;
-                }
-                li a img { display: none; }
-                li:hover ul a {
-                    height: 40px;
-                    line-height: 40px;
-                }
-                li:hover a {
-                    text-decoration: underline;
-                }
-                ul li { height: 40px; }
-            }
-        }
     }
 }

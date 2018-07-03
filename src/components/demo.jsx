@@ -16,7 +16,6 @@ import data from './mock.json';
 import classPrefixer from '../helpers/classPrefixer';
 
 const cx = classPrefixer('demo');
-
 const urlMock = 'http://demo6733620.mockable.io/';
 
 const getDemoArticles = (articles, keys) => {
@@ -48,70 +47,6 @@ const DemoMultiArtcls = ({ count, special, last }) => {
     );
 };
 
-const menuArray = [
-    {
-        title: 'N',
-        link: 'http://novice.najdi.si'
-    },
-    {
-        title: 'Vroče zgodbe',
-        link: '/kategorija/vroce-zgodbe'
-    },
-    {
-        title: 'Slovenija',
-        link: '/kategorija/slovenija'
-    },
-    {
-        title: 'Regionalne novice',
-        link: '/kategorija/regionalne-novice'
-    },
-    {
-        title: 'Svet',
-        link: '/kategorija/svet'
-    },
-    {
-        title: 'Gospodarstvo',
-        link: '/kategorija/gospodarstvo'
-    },
-    {
-        title: 'Šport',
-        link: '/kategorija/sport'
-    },
-    {
-        title: 'Kronika',
-        link: '/kategorija/kronika'
-    },
-    {
-        title: 'Zanimivosti',
-        link: '/kategorija/zanimivosti'
-    },
-    {
-        title: 'Avtomobilizem',
-        link: '/kategorija/avtomobilizem'
-    },
-    {
-        title: 'Znanost in IT',
-        link: '/kategorija/znanost-in-it'
-    },
-    {
-        title: 'Kultura',
-        link: '/kategorija/kultura'
-    },
-    {
-        title: 'Lepota in zdravje',
-        link: '/kategorija/lepota-in-zdravje'
-    },
-    {
-        title: 'Vreme',
-        link: 'http://vreme.alpha.najdi.si'
-    },
-    {
-        title: 'Seznam virov',
-        link: 'http://novice.alpha.najdi.si/seznamvirov'
-    }
-];
-
-
 export default class Demo extends React.PureComponent {
     render() {
         const { displayDemo, displayComponents } = this.props;
@@ -121,7 +56,7 @@ export default class Demo extends React.PureComponent {
                 <div className={cx('header')} />
 
                 <div className={cx('navbar')}>
-                    <NavBar data={menuArray} />
+                    <NavBar />
                 </div>
 
                 <div className={cx('wrapper')}>
