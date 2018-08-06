@@ -127,7 +127,7 @@ class SubSwitcher extends React.PureComponent {
                             <For each="article" index="idx" of={filtered}>
                                 <div key={`article_${idx}`} className={cx('sub-article')} style={{ flex: `1 1 ${100 / filtered.length}%` }}>
                                     <SourceList category={article.category} source={article.channel} published={article.published} pubDateDiff={article.pubDateDiff} />
-                                    <div ref={this.setRef} className={cx('title', 'title')}>
+                                    <div ref={this.setRef} className={cx('title', ['title', '500'])}>
                                         {(lineCount && article.title.length) &&
                                             <a className={article.linkSeo && 'nsmod-clickable'} href={article.linkSeo} target="_blank">
                                                 <NanoClamp

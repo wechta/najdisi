@@ -173,7 +173,7 @@ export default class ArticleSwitcher extends React.PureComponent {
     render() {
         const { size } = this.props;
         const { filtered, selectedEl, isHover, animateClass, lineCount } = this.state;
-        const { image, category, channel, published, title, description, linkSeo, pubDateDiff } = filtered[selectedEl];
+        const { image, category, channel, published, title, description, linkSeo, pubDateDiff, link } = filtered[selectedEl];
 
         let resp = responsive(size.width); //move that somewhere else
 
@@ -205,6 +205,9 @@ export default class ArticleSwitcher extends React.PureComponent {
                                     </div>
                                     <div ref={this.setRef} className={cx('content', 'text')}>
                                         <div className={cx('text-wrap')}>{descElement}</div>
+                                        <a href={link} target="_blank">
+                                            <div className={cx('link-more')}>{'Več...'}</div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

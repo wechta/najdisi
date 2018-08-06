@@ -46,8 +46,9 @@ $text-rows-slider: 4;
         margin-top: $spacing-m;
         flex: 1 1 auto;
     }
-    &_text-wrap { @include absolute(0, 0, 0, 0); }
+    &_text-wrap { @include absolute(0, 0, 12px, 0); }
     &_content { line-height: $line-height-s; }
+    &_link-more  { @include absolute(auto, 0, 0, auto); }
 }
 
 .r-medium {

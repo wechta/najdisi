@@ -4,14 +4,15 @@
 $baseClr: #292f41;
 $borderClr: #444;
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    z-index: 10;
-}
+
 .ns-navbar__wrapper {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 10;
+    }
     li {
         display: inline-block;
         float: left;
@@ -109,7 +110,6 @@ ul {
         position: absolute;
         display: flex;
         flex-direction: row;
-        visibility: none;
     }
     &_hidden-el {
         padding: 0 $spacing-s;

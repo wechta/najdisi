@@ -29,6 +29,7 @@
         font-size: $font-size-m;
         height: 80%;
         cursor: pointer;
+        &.nsmod-500 { font-weight: 500; }
     }
 
     &_arrow-holder {
