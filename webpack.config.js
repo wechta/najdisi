@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/docs'),
+  entry: ['babel-polyfill', path.join(__dirname, 'src/docs')],
   output: {
     path: path.join(__dirname, 'docs'),
     filename: 'bundle.js'

@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/docs/cmpExport.jsx'),
+  entry: ['babel-polyfill', path.join(__dirname, 'src/docs/cmpExport.jsx')],
   output: {
     libraryTarget: 'var',
     library: 'najdisiComponents',

@@ -50,6 +50,7 @@
   "author": "M&M",
   "dependencies": {
     "autoprefixer": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
     "nanoclamp": "^1.2.5",
     "postcss-loader": "^2.1.1",
     "prop-types": "^15.6.1",

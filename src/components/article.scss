@@ -41,7 +41,7 @@ $img-inbox-h-ratio: 46.5%;
     &_holder {
         width: 100%;
         overflow: hidden;
-        padding: $spacing-25 $spacing-m;
+        padding: $spacing-m $spacing-m;
         position: relative;
         overflow: hidden;
         &.nsmod-has-item { display: flex; }
