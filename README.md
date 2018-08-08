@@ -23,3 +23,24 @@
     - `najdisiComponents.showNormalArticle('API URL', document.getElementById("article"));`
     - `najdisiComponents.showArticleWithSub('API URL', document.getElementById("sub"));`
     - `najdisiComponents.showBoxArticles('API URL', document.getElementById("box"));`
+    - `najdisiComponents.showNormalArticleByData('JSON DATA', document.getElementById("data_article"));`
+    - `najdisiComponents.showMenu([], document.getElementById("menu"));`
+
+### Menu data structure
+
+```json
+[
+    {
+        title: 'N',
+        link: 'http://novice.najdi.si'
+    },
+    {
+        title: 'Vroče zgodbe',
+        link: '/kategorija/vroce-zgodbe'
+    },
+    {
+        title: 'Slovenija',
+        link: '/kategorija/slovenija'
+    }
+]
+```
