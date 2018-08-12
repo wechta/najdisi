@@ -9,7 +9,7 @@ import subNav from '../assets/png/subnav.png';
 
 const cx = classPrefixer('navbar');
 
-const MORE_SPACE = 60;
+const MORE_SPACE = 75;
 const menuArray = [
     {
         title: 'N',
