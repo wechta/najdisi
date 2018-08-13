@@ -9,7 +9,7 @@ import subNav from '../assets/png/subnav.png';
 
 const cx = classPrefixer('navbar');
 
-const MORE_SPACE = 75;
+const MORE_SPACE = 70;
 const menuArray = [
     {
         title: 'N',
@@ -73,6 +73,8 @@ const menuArray = [
     }
 ];
 
+let interval = {};
+
 export default class NavBar extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -88,6 +90,14 @@ export default class NavBar extends React.PureComponent {
     }
 
     componentDidMount() {
+        interval = setInterval(this.measureComponents, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(interval);
+    }
+
+    measureComponents = () => {
         if (this.hiddenRef && this.data.length) {
             [].slice.call(this.hiddenRef.children).forEach(el => {
                 this.dataElWidths.push(el.clientWidth);

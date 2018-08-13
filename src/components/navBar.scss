@@ -110,6 +110,7 @@ $borderClr: #444;
         position: absolute;
         display: flex;
         flex-direction: row;
+        visibility: hidden;
     }
     &_hidden-el {
         padding: 0 $spacing-s;
