@@ -73,8 +73,6 @@ const menuArray = [
     }
 ];
 
-let interval = {};
-
 export default class NavBar extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -90,11 +88,13 @@ export default class NavBar extends React.PureComponent {
     }
 
     componentDidMount() {
-        interval = setInterval(this.measureComponents, 1000);
+        this.timeout = setTimeout(() => {
+            this.measureComponents();
+        }, 1000);
     }
 
     componentWillUnmount() {
-        clearInterval(interval);
+        clearTimeout(this.timeout);
     }
 
     measureComponents = () => {
