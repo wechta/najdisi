@@ -12,11 +12,14 @@ import BoxArticle from './boxArticle';
 
 import NavBar from './navBar';
 
+import SidebarPosts from './sidebarPosts';
+
 import data from './mock.json';
 import classPrefixer from '../helpers/classPrefixer';
 
 const cx = classPrefixer('demo');
 const urlMock = 'http://demo6733620.mockable.io/';
+const urlCluster = 'http://demo8288769.mockable.io/';
 
 const getDemoArticles = (articles, keys) => {
     return (
@@ -99,8 +102,11 @@ export default class Demo extends React.PureComponent {
             <div className={'ns-standalone'}>
                 {true && <ArticleSwitcher apiUrl={urlMock} />}
                 {true && <ArticleWithSubarticles apiUrl={urlMock} /> }
+                {true && <ArticleWithSubarticles apiUrl={urlCluster} subsFromCluster />}
                 {true && <StandaloneArticle apiUrl={urlMock} showVideo /> }
                 {true && <BoxArticle apiUrl={urlMock} />}
+                {true && <SidebarPosts title={'Pravkar objavljeno'} apiUrl={urlMock} recentPosts />}
+                {true && <SidebarPosts title={'Najbolj brano'} apiUrl={urlMock} />}
             </div>
         );
 

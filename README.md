@@ -22,9 +22,12 @@
     - `najdisiComponents.showArticleSwitcher('API URL', document.getElementById("main"));`
     - `najdisiComponents.showNormalArticle('API URL', document.getElementById("article"));`
     - `najdisiComponents.showArticleWithSub('API URL', document.getElementById("sub"));`
+    - `najdisiComponents.showArticleClusterSub('API URL', document.getElementById("subCluster"));`
     - `najdisiComponents.showBoxArticles('API URL', document.getElementById("box"));`
     - `najdisiComponents.showNormalArticleByData('JSON DATA', document.getElementById("data_article"));`
     - `najdisiComponents.showMenu([], document.getElementById("menu"));`
+    - `najdisiComponents.showRecent('API URL', document.getElementById("recent"));`
+    - `najdisiComponents.showTopArticles('API URL', document.getElementById("top"));`
 
 ### Menu data structure
 

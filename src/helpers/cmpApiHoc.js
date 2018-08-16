@@ -63,6 +63,7 @@ export function cmpApiHoc(cmpSetup) {
                     fetch(url, {
                         credentials: 'include'
                     })
+                    //fetch(url)
                         .then(result => {
                             response = result.clone();
                             return result.text();
@@ -100,6 +101,22 @@ export function cmpApiHoc(cmpSetup) {
                     return null;
                 }
 
+                let dataResults = [];
+
+                if (this.props.subsFromCluster) { //eslint-disable-line
+                    let firstDoc = data.results.document[0];
+                    dataResults.push(firstDoc);
+
+                    if (firstDoc.clusters && firstDoc.clusters.cluster && firstDoc.clusters.cluster.length) {
+                        firstDoc.clusters.cluster.forEach(cl => {
+                            dataResults.push(cl);
+                        });
+                    }
+
+                } else {
+                    dataResults = data.results.document;
+                }
+
                 data.results.document.filter(function(el) {
                     if (!el.image) {
                         el.image = dummyImg;
@@ -108,9 +125,9 @@ export function cmpApiHoc(cmpSetup) {
                 });
 
                 if (cmpSetup.noArray) {
-                    return data.results.document[0];
+                    return dataResults[0];
                 } else {
-                    return data.results.document.slice(0, artNum);
+                    return dataResults.slice(0, artNum);
                 }
             }
 

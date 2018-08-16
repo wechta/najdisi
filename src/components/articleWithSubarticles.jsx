@@ -161,12 +161,16 @@ export default class ArticleWithSubarticles extends React.PureComponent {
         const { data } = this.props;
         const mainArticleData = data.length ? data[0] : [];
         const subArticleData = data.length ? data.slice(1, data.length + 1) : [];
-
         const subComponent = <SubSwitcher data={subArticleData} />;
+
+        let additionalProps = {};
+        if (subArticleData.length) {
+            additionalProps.subCmp = subComponent;
+        }
 
         return (
             <If condition={data.length}>
-                <Article data={mainArticleData} subCmp={subComponent} />
+                <Article data={mainArticleData} {...additionalProps} />
             </If>
         );
     }
