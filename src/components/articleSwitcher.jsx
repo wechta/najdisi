@@ -205,8 +205,8 @@ export default class ArticleSwitcher extends React.PureComponent {
                                     </div>
                                     <div ref={this.setRef} className={cx('content', 'text')}>
                                         <div className={cx('text-wrap')}>{descElement}</div>
-                                        <a href={link} target="_blank">
-                                            <div className={cx('link-more')}>{'Več...'}</div>
+                                        <a href={linkSeo} target="_blank">
+                                            <div className={cx('link-more')}>{'Več ...'}</div>
                                         </a>
                                     </div>
                                 </div>

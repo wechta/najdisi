@@ -33,12 +33,12 @@ export default class SourceList extends React.PureComponent {
                 }
                 {category &&
                     <div className={cx('cat')}>
-                        <a href={baseUrl + '/kategorija/' + category.toLowerCase()} target="_blank">{checkLength(category)}</a>
+                        <a href={baseUrl + '/kategorija/' + category.toLowerCase()} target="_self">{checkLength(category)}</a>
                         {(source || published || pubDateDiff) && <span className={cx('separator')}>&#8226;</span>}
                     </div>
                 }
                 {source && <div className={cx('source')}>
-                    <a href={baseUrl + '/novice/najdi/vse/vir/' + source} target="_blank">{checkLength(source)}</a>
+                    <a href={baseUrl + '/novice/najdi/vse/vir/' + source} target="_self">{checkLength(source)}</a>
                     {(published || pubDateDiff) && <span className={cx('separator')}>&#8226;</span>}
                 </div>}
                 {(published || pubDateDiff) && <div className={cx('time')}>{pubDateDiff ? pubDateDiff : dateParser(published)}</div>}
