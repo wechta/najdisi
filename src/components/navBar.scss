@@ -23,7 +23,7 @@ $borderClr: #444;
         text-align: center;
         line-height: 40px;
         color: #fff;
-        background: $baseClr;
+        /* background: $baseClr; */
         text-decoration: none;
     }
     li:hover ul a {
@@ -79,7 +79,7 @@ $borderClr: #444;
         font-family: 'Roboto';
         height: 40px;
         width: 100%;
-        background: $baseClr;
+        /* background: $baseClr; */
         display: flex;
         font-weight: $font-weight-normal;
         position: relative;
