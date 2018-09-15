@@ -4,14 +4,13 @@
 $baseClr: #292f41;
 $borderClr: #444;
 
-
 .ns-navbar__wrapper {
     ul {
         list-style-type: none;
         margin: 0 auto;
         padding: 0;
-        /* position: absolute; */
-        z-index: 10;
+        position: absolute;
+        z-index: 1;
     }
     li {
         display: inline-block;
