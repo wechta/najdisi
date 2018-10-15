@@ -40,6 +40,7 @@ $text-rows-slider: 4;
         color: $color-title-link;
         margin-top: $spacing-l;
         font-size: $font-size-l;
+        line-height: $font-size-l;
     }
     &_content {
         position: relative;
@@ -48,8 +49,8 @@ $text-rows-slider: 4;
     }
     &_text-wrap { @include absolute(0, 0, 12px, 0); }
     &_content { line-height: $line-height-s; }
-    &_link-more  { 
-        @include absolute(auto, 0, 0, auto); 
+    &_link-more  {
+        @include absolute(auto, 0, 0, auto);
         font-weight: $font-weight-semi-bold;
     }
 }
