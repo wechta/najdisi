@@ -84,6 +84,8 @@ $borderClr: #444;
         font-weight: $font-weight-normal;
         position: relative;
         color: #fff;
+        display: flex;
+        justify-content: center;
     }
     &_show-menu {
         text-decoration: none;
