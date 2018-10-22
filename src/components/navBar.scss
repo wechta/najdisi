@@ -55,6 +55,7 @@ $borderClr: #444;
     ul li a:hover + .ns-navbar__hidden, .ns-navbar__hidden:hover {
         display: block;
         right: 0;
+        background: $baseClr;
     }
     &_home {
         display: none;
@@ -83,6 +84,8 @@ $borderClr: #444;
         font-weight: $font-weight-normal;
         position: relative;
         color: #fff;
+        display: flex;
+        justify-content: center;
     }
     &_show-menu {
         text-decoration: none;
