@@ -1,0 +1,203 @@
+@import '../styles/defaults';
+@import '../styles/mixins';
+
+$baseClr: #292f41;
+$borderClr: #444;
+
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+  z-index: 10;
+}
+
+.nav li {
+  font-family: 'Roboto';
+
+  line-height: 40px;
+  text-align: left;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding-left: 15px;
+  transition: .3s background-color;
+}
+
+.nav a:hover {
+  //background-color: #005f5f;
+}
+
+/*.nav a.active {
+  background-color: #aaa;
+  color: #444;
+  cursor: default;
+}*/
+
+/* Sub Menus */
+.nav li li {
+  //font-size: .8em;
+}
+
+/*******************************************
+   Style menu for larger screens
+
+   Using 650px (130px each * 5 items), but ems
+   or other values could be used depending on other factors
+********************************************/
+
+
+  .nav li {
+    padding: 0 10px;
+    //width: 130px;
+
+    height: 50px;
+    line-height: 50px;
+    font-size: 13px;
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+  .nav > ul > li {
+    text-align: center;
+  }
+
+  .nav > ul > li > a {
+    padding-left: 0;
+  }
+
+  /* Sub Menus */
+  .nav li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+  }
+
+  .nav li:hover ul {
+    display: block;
+  }
+
+  .nav li ul li {
+    display: block;
+  }
+
+
+
+/*.ns-navbar__wrapper {
+    ul {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+    }
+    li {
+        display: inline-block;
+        float: left;
+        padding: 0 $spacing-s;
+    }
+    li a {
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
+        text-decoration: none;
+    }
+    li:hover ul a {
+        text-decoration: none;
+        height: 40px;
+        line-height: 40px;
+    }
+    li ul {
+        display: none;
+        height: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+    li ul li {
+        padding: 0;
+        display: block;
+        float: none;
+        height: 40px;
+        &:last-child {
+            a {
+                border-radius: 0 0 3px 3px;
+            }
+        }
+    }
+    li ul li a {
+        width: auto;
+        min-width: 100px;
+        padding: 0 $spacing-s;
+        text-align: left;
+    }
+    ul li a:hover + .ns-navbar__hidden, .ns-navbar__hidden:hover {
+        display: block;
+        right: 0;
+        background: $baseClr;
+    }
+    &_home {
+        display: none;
+    }
+    input[type=checkbox]{
+        display: none;
+    }
+    input[type=checkbox]:checked ~ #menu{
+        display: block;
+    }
+    input[type=checkbox]:checked ~ #home{
+        display: block;
+    }
+    input[type=checkbox]:checked ~ #login{
+        display: none;
+    }
+}
+
+.ns-navbar_ {
+    &_wrapper {
+        font-family: 'Roboto';
+        height: 40px;
+        width: 100%;
+        display: flex;
+        font-weight: $font-weight-normal;
+        position: relative;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+    }
+    &_show-menu {
+        text-decoration: none;
+        padding: 10px 0;
+        display: none;
+        cursor: pointer;
+    }
+    &_subnav { margin-left: $spacing-xs; }
+    &_hidden {
+        height: 20px;
+    }
+    &_hidden li a img {
+        transform: rotate(-90deg);
+        margin: 0 2px 1px 0;
+    }
+    &_home {
+        display: none;
+        position: absolute;
+        right: -999px;
+        cursor: pointer;
+    }
+    &_hidden-wrapper {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        visibility: hidden;
+    }
+    &_hidden-el {
+        padding: 0 $spacing-s;
+        display: inline;
+        white-space: nowrap;
+    }
+}*/

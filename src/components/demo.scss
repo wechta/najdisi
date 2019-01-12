@@ -26,6 +26,10 @@
         flex-direction: column;
         padding: $spacing-l;
     }
+    &_navbar {
+        background: #292f41;
+        margin: 4px 0;
+    }
     &_header {
         height: 40px;
         width: 100%;

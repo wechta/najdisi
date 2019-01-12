@@ -11,6 +11,7 @@ import ArticleSwitcher from './articleSwitcher';
 import BoxArticle from './boxArticle';
 
 import NavBar from './navBar';
+import NavBar2 from './navBar2';
 
 import SidebarPosts from './sidebarPosts';
 
@@ -60,6 +61,9 @@ export default class Demo extends React.PureComponent {
 
                 <div className={cx('navbar')}>
                     <NavBar />
+                </div>
+                <div className={cx('navbar')}>
+                    <NavBar2 />
                 </div>
 
                 <div className={cx('wrapper')}>
